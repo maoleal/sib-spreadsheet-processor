@@ -24,13 +24,15 @@ public class ApplicationConfig {
     PRODUCTION, DEVELOPMENT
   }
 
-  private static final String PROPERTIES_FILE = "application.properties";
   protected static final String DATADIR_PROPFILE = "sibsp.properties";
+  private static final String CLASSPATH_PROPFILE = "application.properties";
   public static final String ROOTURL = "sibsp.rootURL";
   public static final String PROXY = "proxy";
+  public static final String DEBUG = "debug";
   private DataDir dataDir;
   private Properties properties = new Properties();
   private static final Logger LOG = Logger.getLogger(ApplicationConfig.class);
+  private REGISTRY_TYPE type;
 
   private ApplicationConfig() {
   }
@@ -41,11 +43,30 @@ public class ApplicationConfig {
     loadConfigurationSettings();
   }
 
+  public boolean debug() {
+    return "true".equalsIgnoreCase(properties.getProperty(DEBUG));
+  }
+
+  public DataDir getDataDir() {
+    return dataDir;
+  }
+
   public String getProperty(String key) {
     return properties.getProperty(key);
   }
 
-  public String getRootUrl() {
+  public REGISTRY_TYPE getRegistryType() {
+    return type;
+  }
+
+  public String getRegistryUrl() {
+    if (REGISTRY_TYPE.PRODUCTION == type) {
+      return getProperty("dev.registry.url");
+    }
+    return getProperty("dev.registrydev.url");
+  }
+
+  public String getRootURL() {
     String root = properties.getProperty(ROOTURL);
     while (root != null && root.endsWith("/")) {
       root = root.substring(0, root.length() - 1);
@@ -55,7 +76,7 @@ public class ApplicationConfig {
 
   protected void loadConfigurationSettings() {
     InputStreamUtils streamUtils = new InputStreamUtils();
-    InputStream configStream = streamUtils.classpathStream(PROPERTIES_FILE);
+    InputStream configStream = streamUtils.classpathStream(CLASSPATH_PROPFILE);
     try {
       Properties properties = new Properties();
       if (configStream == null) {
@@ -66,7 +87,7 @@ public class ApplicationConfig {
       }
       if (dataDir.dataDir != null && dataDir.dataDir.exists()) {
         // Read configuration data
-        File userConfigurationFile = new File(dataDir.dataDir, "config/" + PROPERTIES_FILE);
+        File userConfigurationFile = new File(dataDir.dataDir, "config/" + DATADIR_PROPFILE);
         if (userConfigurationFile.exists()) {
           try {
             properties.load(new FileInputStream(userConfigurationFile));

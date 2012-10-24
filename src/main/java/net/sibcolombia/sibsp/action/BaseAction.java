@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import net.sibcolombia.sibsp.configuration.ApplicationConfig;
 import net.sibcolombia.sibsp.struts2.SimpleTextProvider;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
@@ -29,6 +30,8 @@ public class BaseAction extends ActionSupport implements SessionAware, Preparabl
   protected Map<String, Object> session;
   protected ApplicationConfig config;
   protected SimpleTextProvider textProvider;
+  // a generic identifier for loading an object BEFORE the param interceptor sets values
+  protected String id;
 
   @Inject
   public BaseAction(SimpleTextProvider textProvider, ApplicationConfig config) {
@@ -63,8 +66,27 @@ public class BaseAction extends ActionSupport implements SessionAware, Preparabl
     addActionExceptionWarning(e);
   }
 
+  /**
+   * Return a list of action warning strings.
+   * 
+   * @return list of action warning strings.
+   */
+  public List<String> getActionWarnings() {
+    return warnings;
+  }
+
   public String getRootURL() {
-    return config.getRootUrl();
+    return config.getRootURL();
+  }
+
+  public String getSopas() {
+    log.info("URL esta en: " + config.getRootURL());
+    return "hola";
+    // return config.getRootURL();
+  }
+
+  public String getTextWithDynamicArgs(String key, String... args) {
+    return textProvider.getText(this, key, null, args);
   }
 
   public List<String> getWarnings() {
@@ -79,9 +101,8 @@ public class BaseAction extends ActionSupport implements SessionAware, Preparabl
   }
 
   @Override
-  public void prepare() throws Exception {
-    // TODO Auto-generated method stub
-
+  public void prepare() {
+    id = StringUtils.trimToNull(request.getParameter("id"));
   }
 
   @Override
@@ -97,6 +118,23 @@ public class BaseAction extends ActionSupport implements SessionAware, Preparabl
     if (session.isEmpty()) {
       session.put("-", true);
     }
+  }
+
+  /**
+   * Utility to compare 2 objects for comparison when both converted to strings useful to compare if a submitted value
+   * is the same as the persisted value.
+   * 
+   * @return true only if o1.equals(o2)
+   */
+  protected boolean stringEquals(Object o1, Object o2) {
+    // both null
+    if (o1 == null && o2 == null) {
+      return true;
+    }
+    if (o1 != null && o2 != null) {
+      return o1.toString().equals(o2.toString());
+    }
+    return false;
   }
 
 }
