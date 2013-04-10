@@ -261,11 +261,6 @@
 			<artifactId>ooxml-schemas</artifactId>
 			<version>${poi-ooxml-schemas.version}</version>
 		</dependency>
-		<dependency>
-		    <groupId>org.quartz-scheduler</groupId>
-		    <artifactId>quartz</artifactId>
-		    <version>${quartz.version}</version>
-		</dependency>
 
         <!-- testing -->
         <dependency>
@@ -372,6 +367,13 @@
 			<groupId>net.sf.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
 			<version>${opencsv.version}</version>
+		</dependency>
+		
+		<!-- Scheduler folder clening library -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>${quartz.version}</version>
 		</dependency>
         
     </dependencies>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="site" extends="sib-spreadsheet-processor-default" namespace="/">
+
+        <default-interceptor-ref name="portalStack"/>
+
+    	<default-action-ref name="home"/>
+    	
+    	<action name="upload" class="net.sibcolombia.sibsp.action.portal.CreateResourceAction">
+    	    <interceptor-ref name="fileUpload">
+    	        <param name="maximumSize">104857600</param>
+			</interceptor-ref>
+			<interceptor-ref name="portalStack"/>
+			<result name="input">/WEB-INF/pages/home.ftl</result>
+			<result name="success">/WEB-INF/pages/results.ftl</result>
+    	</action>
+    
+    	<action name="home" class="net.sibcolombia.sibsp.action.portal.HomeAction">
+			<result>/WEB-INF/pages/home.ftl</result>
+		</action>
+		
+    	<action name="archive" class="net.sibcolombia.sibsp.action.portal.ResourceFileAction" method="dwca">
+    	    <result name="success" type="stream">
+    	        <param name="contentType">${mimeType}</param>
+    	        <param name="inputName">inputStream</param>
+    	        <param name="contentDisposition">filename="${filename}"</param>
+    	        <param name="bufferSize">1024</param>
+			</result>
+		</action>
+		<action name="eml" class="net.sibcolombia.sibsp.action.portal.ResourceFileAction" method="eml">
+		    <result name="success" type="stream">
+		        <param name="contentType">${mimeType}</param>
+		        <param name="contentCharSet">UTF-8</param>
+		        <param name="inputName">inputStream</param>
+		        <param name="contentDisposition">filename="${filename}"</param>
+		        <param name="bufferSize">1024</param>
+			</result>
+		</action>
+		<action name="rtf" class="net.sibcolombia.sibsp.action.portal.ResourceFileAction" method="rtf">
+		    <result name="success" type="stream">
+		        <param name="contentType">${mimeType}</param>
+		        <param name="inputName">inputStream</param>
+		        <param name="contentDisposition">filename="${filename}"</param>
+		        <param name="bufferSize">1024</param>
+		 	</result>
+		</action>
+		
+	</package>
+</struts>

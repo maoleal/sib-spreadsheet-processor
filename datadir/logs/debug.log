@@ -1,0 +1,26 @@
+INFO  Reloaded log4j for production
+INFO  Logging to C:\Dropbox\eclipse_workspace\ipteclipse\datadir\logs
+INFO  IPT Data Directory: C:\Dropbox\eclipse_workspace\ipteclipse\datadir\.
+INFO  Configuring http proxy ...
+INFO  Removing proxy setting
+INFO  Loading user accounts ...
+INFO  Loading vocabularies ...
+INFO  Successfully loaded Vocabulary: Dublin Core Type Vocabulary
+INFO  Successfully loaded Vocabulary: Darwin Core Type Vocabulary
+INFO  Successfully loaded Vocabulary: EML Agent Role Vocabulary
+INFO  Successfully loaded Vocabulary: GBIF Dataset Subtype Vocabulary
+INFO  Successfully loaded Vocabulary: GBIF Dataset Type Vocabulary
+INFO  Successfully loaded Vocabulary: Nomenclatural Codes
+INFO  Successfully loaded Vocabulary: Preservation Method GBIF Vocabulary
+INFO  Successfully loaded Vocabulary: Taxonomic Rank GBIF Vocabulary
+INFO  Successfully loaded Vocabulary: ISO 3166-1 Alpha2 Country Codes
+INFO  Successfully loaded Vocabulary: ISO 639-2 Language Codes
+INFO  Loading dwc extensions ...
+INFO  Successfully loaded extension http://rs.tdwg.org/dwc/terms/Taxon
+INFO  Loading registration configuration...
+WARN  Registration information not existing, registration.xml file missing  (This is normal when IPT is not registered yet)
+INFO  Loading resource configurations ...
+INFO  Loaded 0 resources into memory alltogether.
+INFO  User valegrajales@gmail.com logged in successfully
+INFO  Redirecting to http://localhost:8080/ipteclipse/
+INFO  Created resource prueba
