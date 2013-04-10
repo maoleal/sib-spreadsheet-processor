@@ -513,7 +513,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
     address.setCity(readCellValue(sheet.getRow(21).getCell(4)));
     address.setProvince(readCellValue(sheet.getRow(23).getCell(1)));
     address.setCountry(readCellValue(sheet.getRow(23).getCell(4)));
-    address.setPostalCode(String.valueOf(Math.round(sheet.getRow(25).getCell(1).getNumericCellValue())));
+    address.setPostalCode(readCellValue(sheet.getRow(25).getCell(1)));
     agent.setAddress(address);
     eml.setContact(agent);
 
@@ -531,7 +531,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
     address.setCity(readCellValue(sheet.getRow(53).getCell(4)));
     address.setProvince(readCellValue(sheet.getRow(55).getCell(1)));
     address.setCountry(readCellValue(sheet.getRow(55).getCell(4)));
-    address.setPostalCode(String.valueOf(Math.round(sheet.getRow(57).getCell(1).getNumericCellValue())));
+    address.setPostalCode(readCellValue(sheet.getRow(57).getCell(1)));
     agent.setAddress(address);
     eml.setMetadataProvider(agent);
     // ////////////////////////////////////////////
