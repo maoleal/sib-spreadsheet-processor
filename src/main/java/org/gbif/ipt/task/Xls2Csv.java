@@ -75,7 +75,6 @@ public class Xls2Csv extends BaseManager {
     String[] entries = new String[totalColumns];
     Row row = sheet.getRow(0);
     for (int counter = 0; counter < totalColumns; counter++) {
-      log.info("Fila: " + row.getRowNum() + " Columna: " + counter);
       if (!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).isEmpty()) {
         if (columnCoreOcurrenceMapping.containsKey(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)))) {
           entries[counter] =
