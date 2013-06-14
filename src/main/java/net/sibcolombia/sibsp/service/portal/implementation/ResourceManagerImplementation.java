@@ -383,7 +383,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
   private void readAdditionalMetadata(Eml eml, Workbook template) throws InvalidFormatException {
-    Sheet sheet = template.getSheet("Metadatos Adicionales");
+    Sheet sheet = template.getSheet("mAdicionales");
     DateFormat dateFormatA = new SimpleDateFormat("MM/dd/yyyy");
     DateFormat dateFormatB = new SimpleDateFormat("yyyy-MM-dd");
     eml.setHierarchyLevel(readCellValue(sheet.getRow(5).getCell(1)));
@@ -395,16 +395,16 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
         } else if (readCellValue(sheet.getRow(5).getCell(4)).matches("\\d{2}/\\d{2}/\\d{4}")) {
           eml.setPubDate(dateFormatA.parse(readCellValue(sheet.getRow(5).getCell(4))));
         } else {
-          throw new InvalidFormatException("Error al procesar fecha publicaci髇 en metadatos adicionales");
+          throw new InvalidFormatException("Error al procesar fecha publicaci贸n en metadatos adicionales");
         }
       }
     } catch (ParseException e) {
-      throw new InvalidFormatException("Error al procesar fecha publicaci髇 en metadatos adicionales: " + e);
+      throw new InvalidFormatException("Error al procesar fecha publicaci贸n en metadatos adicionales: " + e);
     }
     eml.setPurpose(readCellValue(sheet.getRow(9).getCell(1)));
     if (!readCellValue(sheet.getRow(11).getCell(1)).isEmpty()) {
       switch (readCellValue(sheet.getRow(11).getCell(1))) {
-        case "Ning鷑a licencia seleccionada":
+        case "Ninguna licencia seleccionada":
           eml.setIntellectualRights(readCellValue(sheet.getRow(12).getCell(1)));
           break;
         case "Creative Commons CCZero":
@@ -420,7 +420,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
           eml.setIntellectualRights(baseAction.getText("eml.intellectualRights.license.odbl.text"));
           break;
         default:
-          throw new InvalidFormatException("El tipo de licencia elegida en Metadatos adicionales es inv醠ida.");
+          throw new InvalidFormatException("El tipo de licencia elegida en Metadatos adicionales es inv谩lida.");
       }
     }
     eml.setAdditionalInfo(readCellValue(sheet.getRow(14).getCell(1)));
@@ -440,7 +440,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
   private void readAssociatedParties(Eml eml, Workbook template) throws InvalidFormatException {
-    Sheet sheet = template.getSheet("Partes Asociadas");
+    Sheet sheet = template.getSheet("pAsociadas");
     Iterator<Row> rowIterator = sheet.rowIterator();
     Agent agent;
     Address address;
@@ -470,7 +470,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
   private void readBasicMetaData(Eml eml, Workbook template, Resource resource) throws InvalidFormatException {
-    Sheet sheet = template.getSheet("Metadatos B醩icos");
+    Sheet sheet = template.getSheet("mB谩sicos");
 
     // Title
     eml.setTitle(readCellValue(sheet.getRow(5).getCell(1)));
@@ -576,7 +576,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
     while (rowIterator.hasNext()) {
       row = rowIterator.next();
       if (readCellValue(sheet.getRow(row.getRowNum()).getCell(1, Row.CREATE_NULL_AS_BLANK)).equalsIgnoreCase(
-        "Identificaci髇 de la Referencia:")) {
+        "Identificaci贸n de la Referencia:")) {
         if (!readCellValue(sheet.getRow(row.getRowNum() + 1).getCell(1)).isEmpty()
           || !readCellValue(sheet.getRow(row.getRowNum() + 3).getCell(1)).isEmpty()) {
           val.add(readCellValue(sheet.getRow(row.getRowNum() + 3).getCell(1)),
@@ -588,7 +588,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
   private void readCollectionData(Eml eml, Workbook template) throws InvalidFormatException {
-    Sheet sheet = template.getSheet("Datos de la Colecci髇");
+    Sheet sheet = template.getSheet("dColecci贸n");
     eml.setCollectionName(readCellValue(sheet.getRow(5).getCell(1)));
     eml.setCollectionId(readCellValue(sheet.getRow(5).getCell(4)));
     eml.setParentCollectionId(readCellValue(sheet.getRow(7).getCell(1)));
@@ -600,7 +600,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
     while (rowIterator.hasNext()) {
       row = rowIterator.next();
       if (readCellValue(sheet.getRow(row.getRowNum()).getCell(1, Row.CREATE_NULL_AS_BLANK)).equalsIgnoreCase(
-        "Tipo de M閠odo:")) {
+        "Tipo de M茅todo:")) {
         switch (readCellValue(sheet.getRow(row.getRowNum() + 1).getCell(1))) {
           case "Rango de conteo":
             jgtiCuratorialUnit = new JGTICuratorialUnit();
@@ -624,7 +624,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
   private void readExternallinks(Eml eml, Workbook template) throws InvalidFormatException {
-    Sheet sheet = template.getSheet("Enlaces externos");
+    Sheet sheet = template.getSheet("eExternos");
     eml.setDistributionUrl(readCellValue(sheet.getRow(5).getCell(1)));
     Iterator<Row> rowIterator = sheet.rowIterator();
     Row row;
@@ -652,7 +652,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
   private void readGeographicCoverage(Eml eml, Workbook template) {
-    Sheet sheet = template.getSheet("Cobertura Geogr醘ica");
+    Sheet sheet = template.getSheet("cGeogr谩fica");
     List<GeospatialCoverage> geospatialCoverageList = new ArrayList<GeospatialCoverage>();
     GeospatialCoverage geospatialCoverage = null;
     BBox boundingCoordinates = null;
@@ -668,7 +668,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
   private void readKeywords(Eml eml, Workbook template) throws InvalidFormatException {
-    Sheet sheet = template.getSheet("Palabras Clave");
+    Sheet sheet = template.getSheet("pClave");
     List<KeywordSet> keywordsSet = new ArrayList<KeywordSet>();
     KeywordSet keywordSet = null;
     Iterator<Row> rowIterator = sheet.rowIterator();
@@ -691,7 +691,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
   private void readProjectData(Eml eml, Workbook template) throws InvalidFormatException {
-    Sheet sheet = template.getSheet("Datos del Proyecto");
+    Sheet sheet = template.getSheet("dProyecto");
     Project project = new Project();
     project.setTitle(readCellValue(sheet.getRow(5).getCell(1)));
     project.setFunding(readCellValue(sheet.getRow(11).getCell(1)));
@@ -708,7 +708,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
   private void readSamplingMethods(Eml eml, Workbook template) throws InvalidFormatException {
-    Sheet sheet = template.getSheet("M閠odos de Muestreo");
+    Sheet sheet = template.getSheet("mMuestreo");
     eml.setStudyExtent(readCellValue(sheet.getRow(5).getCell(1)));
     eml.setSampleDescription(readCellValue(sheet.getRow(7).getCell(1)));
     eml.setQualityControl(readCellValue(sheet.getRow(9).getCell(1)));
@@ -718,7 +718,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
     while (rowIterator.hasNext()) {
       row = rowIterator.next();
       if (readCellValue(sheet.getRow(row.getRowNum()).getCell(1, Row.CREATE_NULL_AS_BLANK)).equalsIgnoreCase(
-        "Descripci髇 del Paso Metodol骻ico:")) {
+        "Descripci贸n del Paso Metodol贸gico:")) {
         if (!readCellValue(sheet.getRow(row.getRowNum() + 1).getCell(1)).isEmpty()) {
           methodSteps.add(readCellValue(sheet.getRow(row.getRowNum() + 1).getCell(1)));
         }
@@ -728,7 +728,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
   private void readTaxonomicCoverage(Eml eml, Workbook template) throws InvalidFormatException {
-    Sheet sheet = template.getSheet("Cobertura Taxon髆ica");
+    Sheet sheet = template.getSheet("cTaxon贸mica");
     List<TaxonomicCoverage> taxonomicCoverages = new ArrayList<TaxonomicCoverage>();
     TaxonomicCoverage taxonomicCoverage = null;
     List<TaxonKeyword> keywords = null;
@@ -738,7 +738,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
     while (rowIterator.hasNext()) {
       row = rowIterator.next();
       if (readCellValue(sheet.getRow(row.getRowNum()).getCell(1, Row.CREATE_NULL_AS_BLANK)).equalsIgnoreCase(
-        "Descripci髇:")) {
+        "Descripci贸n:")) {
         if (!readCellValue(sheet.getRow(row.getRowNum() + 1).getCell(1)).isEmpty()) {
           taxonomicCoverage = new TaxonomicCoverage();
           taxonomicCoverage.setDescription(readCellValue(sheet.getRow(row.getRowNum() + 1).getCell(1)));
@@ -746,7 +746,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
           row = rowIterator.next();
           row = rowIterator.next();
           while (readCellValue(sheet.getRow(row.getRowNum()).getCell(1, Row.CREATE_NULL_AS_BLANK)).equalsIgnoreCase(
-            "Nombre cient韋ico *REQUERIDO:")) {
+            "Nombre cient铆fico *REQUERIDO:")) {
             row = rowIterator.next();
             if (!readCellValue(sheet.getRow(row.getRowNum()).getCell(1)).isEmpty()) {
               taxonKeyword = new TaxonKeyword();
@@ -766,7 +766,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
   private void readTemporalCoverage(Eml eml, Workbook template) throws InvalidFormatException {
-    Sheet sheet = template.getSheet("Cobertura Temporal");
+    Sheet sheet = template.getSheet("cTemporal");
     List<TemporalCoverage> temporalCoverages = new ArrayList<TemporalCoverage>();
     TemporalCoverage temporalCoverage = null;
     DateFormat dateFormatA = new SimpleDateFormat("MM/dd/yyyy");
@@ -782,11 +782,9 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
             try {
               temporalCoverage = new TemporalCoverage();
               if (readCellValue(sheet.getRow(row.getRowNum() + 5).getCell(2)).matches("\\d{4}-\\d{2}-\\d{2}")) {
-                temporalCoverage.setStartDate(dateFormatB.parse(readCellValue(sheet.getRow(row.getRowNum() + 14)
-                  .getCell(2))));
+                temporalCoverage.setStartDate(dateFormatB.parse(readCellValue(sheet.getRow(row.getRowNum() + 5).getCell(2))));
               } else if (readCellValue(sheet.getRow(row.getRowNum() + 5).getCell(2)).matches("\\d{2}/\\d{2}/\\d{4}")) {
-                temporalCoverage.setStartDate(dateFormatA.parse(readCellValue(sheet.getRow(row.getRowNum() + 14)
-                  .getCell(2))));
+                temporalCoverage.setStartDate(dateFormatA.parse(readCellValue(sheet.getRow(row.getRowNum() + 5).getCell(2))));
               } else {
                 throw new InvalidFormatException("Error al procesar fecha inicial y final en cobertura temporal");
               }
@@ -795,12 +793,12 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
               throw new InvalidFormatException("Error al procesar fecha inicial y final en cobertura temporal: " + e);
             }
             break;
-          case "Per韔do de Tiempo de Vida":
+          case "Periodo de Tiempo de Vida":
             temporalCoverage = new TemporalCoverage();
             temporalCoverage.setLivingTimePeriod(readCellValue(sheet.getRow(row.getRowNum() + 8).getCell(2)));
             temporalCoverages.add(temporalCoverage);
             break;
-          case "Per韔do de Formaci髇":
+          case "Periodo de Formaci贸n":
             temporalCoverage = new TemporalCoverage();
             temporalCoverage.setFormationPeriod(readCellValue(sheet.getRow(row.getRowNum() + 11).getCell(2)));
             temporalCoverages.add(temporalCoverage);

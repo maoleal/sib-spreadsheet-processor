@@ -8,7 +8,7 @@
 body {
 	background-color: white;
 	color: #333;
-	background-image: url(../images/leaves_top.jpg), url(../images/_leaves_bottom.jpg), url(../images/bg_azul_2.jpg);
+	background-image: url(../images/leaves_top.jpg), url(../images/bg_azul_2.jpg), url(../images/bg_azul_2.jpg);
 	background-repeat: repeat-x, repeat-x, repeat;
 	background-position: center top, bottom left, left top;
 	margin: 0;
@@ -19,7 +19,7 @@ body {
 }
 .navbar-inner {
 	background-color: white;
-	background-image: url(../images/leaves_top3.jpg), url(../images/_leaves_bottom.jpg), url(../images/bg_azul_2.jpg);
+	background-image: url(../images/leaves_top3.jpg), url(../images/bg_azul_2.jpg), url(../images/bg_azul_2.jpg);
 	background-repeat: repeat-x, repeat-x, repeat;
 	background-position: center top, bottom left, left top;
 }
@@ -217,4 +217,7 @@ table.table-properties td.property {
 }
 .type-element {
 	font-size: 0.9em;
+}
+.qq-upload-button {
+	width: 170px !important;
 }

@@ -62,10 +62,10 @@ public class CreateResourceAction extends ManagerBaseAction {
 
   private final DataDir dataDir; // Directory to save temporal file
 
-  // Data about the file uploades
-  private File file;
-  private String fileContentType;
-  private String fileFileName;
+  // Data about file uploads
+  private List<File> files;
+  private List<String> fileContentTypes;
+  private List<String> fileFileNames;
   private String shortname;
   private String onlyFileName;
   private String onlyFileExtension;
@@ -79,6 +79,9 @@ public class CreateResourceAction extends ManagerBaseAction {
   private List<String> columns;
   private List<PropertyMapping> fields;
   private List<String[]> peek;
+  
+  Boolean existMetadataFile = false;
+  Boolean existAttributesFile = false;
 
   private final Map<String, Map<String, String>> vocabTerms = new HashMap<String, Map<String, String>>();
   private final VocabulariesManager vocabulariesManager;
@@ -160,8 +163,8 @@ public class CreateResourceAction extends ManagerBaseAction {
     return automapped;
   }
 
-  private void explodeFileExtension() {
-    String fileName = fileFileName;
+  private void explodeFileExtension(int position) {
+    String fileName = fileFileNames.get(position);
     int dotPosition = fileName.lastIndexOf('.');
     if (dotPosition > 0 && dotPosition < fileName.length() - 1) {
       onlyFileExtension = fileName.substring(dotPosition + 1).toLowerCase();
@@ -274,20 +277,137 @@ public class CreateResourceAction extends ManagerBaseAction {
   public String save() throws IOException {
     ActionLogger actionLogger = new ActionLogger(this.log, this);
     try {
-      File tmpFile = uploadToTmp();
+      Map<String, FileData> tmpFiles = uploadToTmp();
       File dataFileElements = null;
-      if (tmpFile != null) {
+      if (tmpFiles != null) {
         Source source = null;
         Extension extension = new Extension();
-        if (isEmlOnly()) {
+        if (existMetadataFile && !existAttributesFile) {
           // Process template with metadata only workbook
+          log.info("Processing only metadata file");
           UUID uniqueID = UUID.randomUUID();
-          this.resource = resourceManager.processMetadataSpreadsheetPart(tmpFile, fileFileName, actionLogger);
+          this.resource = resourceManager.processMetadataSpreadsheetPart(tmpFiles.get("Metadata").getFile(), tmpFiles.get("Metadata").getFileName(), actionLogger);
           this.resource.setUniqueID(uniqueID);
           this.resource.setLastPublished(new Date());
           saveResource();
           this.resourceManager.saveEml(this.resource);
-        } else if (isBasicOcurrenceOnly() || isTaxonomicOnly() || isCompleteOcurrenceOnly()) {
+          if (resourceManager.publish(this.resource, this)) {
+            addActionMessage(getText("sibsp.application.portal.overview.publishing.resource.version",
+              new String[] {Integer.toString(resource.getEmlVersion())}));
+          }
+          // resourceManager.create(tmpFile, fileFileName, onlyFileName, onlyFileExtension, this);
+          log.info("File uploaded");
+          tmpFiles.get("Metadata").getFile().delete();
+        } else if(existMetadataFile && existAttributesFile) {
+          log.info("Processing metadata and attributes files");
+          UUID uniqueID = UUID.randomUUID();
+          this.resource = resourceManager.processMetadataSpreadsheetPart(tmpFiles.get("Metadata").getFile(), tmpFiles.get("Metadata").getFileName(), actionLogger);
+          this.resource.setUniqueID(uniqueID);
+          if(tmpFiles.get("AttributesCompleteList") != null) {
+            log.info("Processing metadata and attributes full list files");
+            dataFileElements = excelToCsvConverter.convertExcelTaxonomicToCsv(resource, tmpFiles.get("AttributesCompleteList").getFile(), actionLogger);
+            source = sourceManager.add(this.resource, dataFileElements, tmpFiles.get("AttributesCompleteList").getFileName());
+            this.resource.addSource(source, true);
+            saveResource();
+            extension = extensionManager.get(Constants.DWC_ROWTYPE_TAXON);
+          } else if(tmpFiles.get("AttributesDwCComplete") != null) {
+            log.info("Processing metadata and DarwinCore complete files");
+            dataFileElements = excelToCsvConverter.convertExcelCoreCompleteToCsv(resource, tmpFiles.get("AttributesDwCComplete").getFile(), actionLogger);
+            source = sourceManager.add(this.resource, dataFileElements, tmpFiles.get("AttributesDwCComplete").getFileName());
+            this.resource.addSource(source, true);
+            saveResource();
+            extension = extensionManager.get(Constants.DWC_ROWTYPE_OCCURRENCE);
+          } else {
+            throw new ImportException("The sib processor application found an invalid file error.");
+          }
+          if (extension != null) {
+            mapping = new ExtensionMapping();
+            mapping.setExtension(extension);
+          }
+          if (mapping != null || mapping.getExtension() != null) {
+            if (mapping.getSource() == null) {
+              mapping.setSource(source);
+            }
+            // set empty filter if not existing
+            if (mapping.getFilter() == null) {
+              mapping.setFilter(new RecordFilter());
+            }
+            // determine the core row type
+            String coreRowType = resource.getCoreRowType();
+            if (coreRowType == null) {
+              // not yet set, the current mapping must be the core type
+              coreRowType = mapping.getExtension().getRowType();
+            }
+            // setup the core record id term
+            String coreIdTerm = Constants.DWC_OCCURRENCE_ID;
+            if (coreRowType.equalsIgnoreCase(Constants.DWC_ROWTYPE_TAXON)) {
+              coreIdTerm = Constants.DWC_TAXON_ID;
+            }
+            coreid = extensionManager.get(coreRowType).getProperty(coreIdTerm);
+            mappingCoreid = mapping.getField(coreid.getQualname());
+            if (mappingCoreid == null) {
+              // no, create bare mapping field
+              mappingCoreid = new PropertyMapping();
+              mappingCoreid.setTerm(coreid);
+              mappingCoreid.setIndex(mapping.getIdColumn());
+            }
+
+            readSource();
+
+            // prepare all other fields
+            fields = new ArrayList<PropertyMapping>(mapping.getExtension().getProperties().size());
+            for (ExtensionProperty p : mapping.getExtension().getProperties()) {
+              // ignore core id term
+              if (p.equals(coreid)) {
+                continue;
+              }
+              // uses a vocabulary?
+              if (p.getVocabulary() != null) {
+                vocabTerms.put(p.getVocabulary().getUriString(),
+                  vocabulariesManager.getI18nVocab(p.getVocabulary().getUriString(), getLocaleLanguage(), true));
+              }
+              // mapped already?
+              PropertyMapping f = mapping.getField(p.getQualname());
+              if (f == null) {
+                // no, create bare mapping field
+                f = new PropertyMapping();
+              }
+              f.setTerm(p);
+              fields.add(f);
+            }
+
+            // finally do automap if no fields are found
+            if (mapping.getFields().isEmpty()) {
+              automap();
+            }
+
+            this.resource.addMapping(mapping);
+
+            saveMapping();
+
+            // remove all DwC mappings with 0 terms mapped
+            for (ExtensionMapping em : resource.getCoreMappings()) {
+              if (em.getFields().isEmpty()) {
+                resource.deleteMapping(em);
+              }
+            }
+          }
+          if (resourceManager.publish(this.resource, this)) {
+            addActionMessage(getText("sibsp.application.portal.overview.publishing.resource.version",
+              new String[] {Integer.toString(resource.getEmlVersion())}));
+          }
+          // resourceManager.create(tmpFile, fileFileName, onlyFileName, onlyFileExtension, this);
+          log.info("File uploaded");
+          if(tmpFiles.get("AttributesCompleteList") != null) {
+            tmpFiles.get("AttributesCompleteList").getFile().delete();
+          } else if(tmpFiles.get("AttributesDwCComplete") != null) {
+            tmpFiles.get("AttributesDwCComplete").getFile().delete();
+          }
+        } else {
+          addFieldError("file", "Debe incluir la plantilla de metadatos.");
+          return INPUT;
+        }
+        /*else if (existMetadataFile && existAttributesFile) {
           UUID uniqueID = UUID.randomUUID();
           this.resource = resourceManager.processMetadataSpreadsheetPart(tmpFile, fileFileName, actionLogger);
           this.resource.setUniqueID(uniqueID);
@@ -382,17 +502,10 @@ public class CreateResourceAction extends ManagerBaseAction {
               }
             }
           }
-        }
-
-        if (resourceManager.publish(this.resource, this)) {
-          addActionMessage(getText("sibsp.application.portal.overview.publishing.resource.version",
-            new String[] {Integer.toString(resource.getEmlVersion())}));
-        }
-        // resourceManager.create(tmpFile, fileFileName, onlyFileName, onlyFileExtension, this);
-        log.info("File uploaded");
-        tmpFile.delete();
+        }*/
       } else {
-        log.error("Error no file to upload");
+        addFieldError("file", "Debe incluir mínimo la plantilla de metadatos.");
+        return INPUT;
       }
     } catch (InvalidFileExtension error) {
       log.error("Spreadsheet template file extension is invalid.");
@@ -451,16 +564,16 @@ public class CreateResourceAction extends ManagerBaseAction {
     return defaultResult;
   }
 
-  public void setFile(File file) {
-    this.file = file;
+  public void setFile(List<File> files) {
+    this.files = files;
   }
 
-  public void setFileContentType(String fileContentType) {
-    this.fileContentType = fileContentType;
+  public void setFileContentType(List<String> fileContentTypes) {
+    this.fileContentTypes = fileContentTypes;
   }
 
-  public void setFileFileName(String fileFileName) {
-    this.fileFileName = fileFileName;
+  public void setFileFileName(List<String> fileFileNames) {
+    this.fileFileNames = fileFileNames;
   }
 
 
@@ -492,44 +605,53 @@ public class CreateResourceAction extends ManagerBaseAction {
     }
   }
 
-  private File uploadToTmp() throws InvalidFileExtension, InvalidFileName {
-    if (fileFileName == null) {
+  private Map<String, FileData> uploadToTmp() throws InvalidFileExtension, InvalidFileName {
+    if (fileFileNames == null) {
       return null;
     }
-    explodeFileExtension();
-    if (validExtension()) {
-      if (validFileName()) {
-        // the file to upload to
-        File tmpFile = dataDir.tmpFile("temp", fileFileName);
-        log.debug("Uploading template file for " + tmpFile.getAbsolutePath());
-        // retrieve the file data
-        InputStream input = null;
-        OutputStream output = null;
-        try {
-          input = new FileInputStream(file);
-          // write the file to the file specified
-          output = new FileOutputStream(tmpFile);
-          IOUtils.copy(input, output);
-          output.flush();
-          log.debug("Uploaded file " + fileFileName + " with content-type " + fileContentType);
-        } catch (IOException e) {
-          log.error(e);
-          return null;
-        } finally {
-          if (output != null) {
-            IOUtils.closeQuietly(output);
+    Map<String, FileData> tmpFiles = new HashMap<String, FileData>();
+    for (int i = 0; i < fileFileNames.size(); i++) {
+      explodeFileExtension(i);
+      if (validExtension()) {
+        if (validFileName()) {
+          // the file to upload to
+          FileData fileData = new FileData(fileFileNames.get(i), dataDir.tmpFile("temp", fileFileNames.get(i)));
+          if (onlyFileName.equalsIgnoreCase("Plantilla_Metadatos_v2.0")) {
+            tmpFiles.put("Metadata", fileData);
+          } else if (onlyFileName.equalsIgnoreCase("Plantilla_Listas_Completa_v2.0")) {
+            tmpFiles.put("AttributesCompleteList", fileData);
+          } else if (onlyFileName.equalsIgnoreCase("Plantilla_DwC_Completa_v2.0")) {
+            tmpFiles.put("AttributesDwCComplete", fileData);
           }
-          if (input != null) {
-            IOUtils.closeQuietly(input);
+          // retrieve the file data
+          InputStream input = null;
+          OutputStream output = null;
+          try {
+            input = new FileInputStream(files.get(i));
+            // write the file to the file specified
+            output = new FileOutputStream(fileData.getFile());
+            IOUtils.copy(input, output);
+            output.flush();
+            log.debug("Uploaded file " + fileFileNames.get(i) + " with content-type " + fileContentTypes.get(i));
+          } catch (IOException e) {
+            log.error(e);
+            return null;
+          } finally {
+            if (output != null) {
+              IOUtils.closeQuietly(output);
+            }
+            if (input != null) {
+              IOUtils.closeQuietly(input);
+            }
           }
+        } else {
+          throw new InvalidFileName("invalid file name");
         }
-        return tmpFile;
       } else {
-        throw new InvalidFileName("invalid file name");
+        throw new InvalidFileExtension("invalid file extension");
       }
-    } else {
-      throw new InvalidFileExtension("invalid file extension");
     }
+    return tmpFiles;
   }
 
   /**
@@ -558,18 +680,35 @@ public class CreateResourceAction extends ManagerBaseAction {
     if (onlyFileName == null) {
       return false;
     } else {
-      if (onlyFileName.equalsIgnoreCase("GMP_template_version_1.0")) {
+      if (onlyFileName.equalsIgnoreCase("Plantilla_Metadatos_v2.0")) {
+        this.existMetadataFile = true;
         return true;
-      } else if (onlyFileName.equalsIgnoreCase("DwC_min_elements_template_version_1.0")) {
-        return true;
-      } else if (onlyFileName.equalsIgnoreCase("DwC_complete_elements_template_version_1.0")) {
-        return true;
-      } else if (onlyFileName.equalsIgnoreCase("DwC_taxonomic_list_template_version_1.0")) {
+      } else if (onlyFileName.equalsIgnoreCase("Plantilla_Listas_Completa_v2.0") || onlyFileName.equalsIgnoreCase("Plantilla_DwC_Completa_v2.0")) {
+        this.existAttributesFile = true;
         return true;
       } else {
         return false;
       }
     }
+  }
+  
+  private class FileData {
+    private String fileName;
+    private File file;
+    
+    public FileData(String fileName, File file) {
+      this.file = file;
+      this.fileName = fileName;
+    }
+    
+    public String getFileName() {
+      return fileName;
+    }
+    
+    public File getFile() {
+      return file;
+    }
+    
   }
 
 }

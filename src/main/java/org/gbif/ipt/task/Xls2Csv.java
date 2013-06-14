@@ -4,9 +4,12 @@ import org.gbif.ipt.utils.ActionLogger;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -61,14 +64,16 @@ public class Xls2Csv extends BaseManager {
     throws IOException, InvalidFormatException {
     Workbook template = WorkbookFactory.create(sourceFile);
     File file = dataDir.sourceExcelFile(resource, "data");
-    FileWriter csvFile = new FileWriter(file);
-    CSVWriter writer = new CSVWriter(csvFile, '\t', CSVWriter.NO_QUOTE_CHARACTER);
+    //FileWriter csvFile = new FileWriter(file);
+    //CSVWriter writer = new CSVWriter(csvFile, '\t', CSVWriter.NO_QUOTE_CHARACTER);
+    OutputStream csvFile = new FileOutputStream(file);
+    CSVWriter writer = new CSVWriter(new OutputStreamWriter(csvFile, "UTF-8"), '\t', CSVWriter.NO_QUOTE_CHARACTER);
 
     // Map of required columns
     Map<Integer, String> columnLocationRequiredElements = new HashMap<Integer, String>();
 
     // Read first row columns names
-    Sheet sheet = template.getSheet("Elementos mínimos");
+    Sheet sheet = template.getSheet("Elementos mÃ­nimos");
     int totalColumns = sheet.getRow(0).getLastCellNum();
     int columnsWithRequiredElements = 0;
     Iterator<Row> rowIterator = sheet.rowIterator();
@@ -116,7 +121,6 @@ public class Xls2Csv extends BaseManager {
         writer.writeNext(entries);
       }
     }
-
     writer.close();
     return file;
   }
@@ -125,14 +129,14 @@ public class Xls2Csv extends BaseManager {
     throws IOException, InvalidFormatException {
     Workbook template = WorkbookFactory.create(sourceFile);
     File file = dataDir.sourceExcelFile(resource, "data");
-    FileWriter csvFile = new FileWriter(file);
-    CSVWriter writer = new CSVWriter(csvFile, '\t', CSVWriter.NO_QUOTE_CHARACTER);
+    OutputStream csvFile = new FileOutputStream(file);
+    CSVWriter writer = new CSVWriter(new OutputStreamWriter(csvFile, "UTF-8"), '\t', CSVWriter.NO_QUOTE_CHARACTER);
 
     // Map of required columns
     Map<Integer, String> columnLocationRequiredElements = new HashMap<Integer, String>();
 
     // Read first row columns names
-    Sheet sheet = template.getSheet("Elementos completos");
+    Sheet sheet = template.getSheet("Plantilla");
     int totalColumns = sheet.getRow(0).getLastCellNum();
     int columnsWithRequiredElements = 0;
     Iterator<Row> rowIterator = sheet.rowIterator();
@@ -168,7 +172,7 @@ public class Xls2Csv extends BaseManager {
 
     while (rowIterator.hasNext()) {
       row = rowIterator.next();
-      if (row.getRowNum() != 0) {
+      if (row.getRowNum() != 0 && row.getRowNum() != 1) {
         for (int counter = 0; counter < totalColumns; counter++) {
           log.info("Fila: " + row.getRowNum() + " Columna: " + counter);
           if (!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).isEmpty()) {
@@ -194,14 +198,16 @@ public class Xls2Csv extends BaseManager {
     throws IOException, InvalidFormatException {
     Workbook template = WorkbookFactory.create(sourceFile);
     File file = dataDir.sourceExcelFile(resource, "data");
-    FileWriter csvFile = new FileWriter(file);
-    CSVWriter writer = new CSVWriter(csvFile, '\t', CSVWriter.NO_QUOTE_CHARACTER);
+    //FileWriter csvFile = new FileWriter(file);
+    //CSVWriter writer = new CSVWriter(csvFile, '\t', CSVWriter.NO_QUOTE_CHARACTER);
+    OutputStream csvFile = new FileOutputStream(file);
+    CSVWriter writer = new CSVWriter(new OutputStreamWriter(csvFile, "UTF-8"), '\t', CSVWriter.NO_QUOTE_CHARACTER);
 
     // Map of required columns
     Map<Integer, String> columnLocationRequiredElements = new HashMap<Integer, String>();
 
     // Read first row columns names
-    Sheet sheet = template.getSheet("Elementos de listas taxonómicas");
+    Sheet sheet = template.getSheet("Plantilla");
     int totalColumns = sheet.getRow(0).getLastCellNum();
     int columnsWithRequiredElements = 0;
     Iterator<Row> rowIterator = sheet.rowIterator();
@@ -232,7 +238,7 @@ public class Xls2Csv extends BaseManager {
 
     while (rowIterator.hasNext()) {
       row = rowIterator.next();
-      if (row.getRowNum() != 0) {
+      if (row.getRowNum() != 0 && row.getRowNum() != 1) {
         for (int counter = 0; counter < totalColumns; counter++) {
           if (!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).isEmpty()) {
             entries[counter] = readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK));
@@ -272,7 +278,7 @@ public class Xls2Csv extends BaseManager {
         list = new ArrayList<String>();
         list.add(nextLine[2]);
         list.add(nextLine[3]);
-        columnMapping.put(nextLine[0], list);
+        columnMapping.put(nextLine[2], list);
         if (nextLine[3].equalsIgnoreCase("required")) {
           totalRequiredElements++;
         }
@@ -311,7 +317,7 @@ public class Xls2Csv extends BaseManager {
         list = new ArrayList<String>();
         list.add(nextLine[2]);
         list.add(nextLine[3]);
-        columnMapping.put(nextLine[0], list);
+        columnMapping.put(nextLine[2], list);
         if (nextLine[3].equalsIgnoreCase("required")) {
           totalRequiredElements++;
         }
@@ -322,7 +328,7 @@ public class Xls2Csv extends BaseManager {
         list = new ArrayList<String>();
         list.add(nextLine[2]);
         list.add(nextLine[3]);
-        columnMapping.put(nextLine[0], list);
+        columnMapping.put(nextLine[2], list);
         if (nextLine[3].equalsIgnoreCase("required")) {
           totalRequiredElements++;
         }
@@ -333,7 +339,7 @@ public class Xls2Csv extends BaseManager {
         list = new ArrayList<String>();
         list.add(nextLine[2]);
         list.add(nextLine[3]);
-        columnMapping.put(nextLine[0], list);
+        columnMapping.put(nextLine[2], list);
         if (nextLine[3].equalsIgnoreCase("required")) {
           totalRequiredElements++;
         }

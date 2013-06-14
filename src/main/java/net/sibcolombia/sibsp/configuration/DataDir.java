@@ -46,7 +46,7 @@ public class DataDir implements ServletContextListener {
     DataDir dataDirectory = new DataDir();
     dataDirectory.dataDirSettingFile = dataDirSettingFile;
     if (dataDirSettingFile != null && dataDirSettingFile.exists()) {
-      // A data directory has been configured already. Let´s see where that is
+      // A data directory has been configured already. Let's see where that is
       String dataDirPath = null;
       try {
         dataDirPath = StringUtils.trimToNull(FileUtils.readFileToString(dataDirSettingFile));

@@ -19,19 +19,15 @@
 					<h3>[@s.text name="sibsp.application.templateslist.title"/]</h3>
 					<dl class="dl-horizontal">
 						<dt>[@s.text name="sibsp.application.metadatafile.name"/]</dt>
-						<dd>[@s.text name="sibsp.application.metadatafile.description"/]<br/> <a class="btn btn-success btn-variacion" href="${rootURL}/templates/GMP_template_version_1.0.xls"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 97-2003)</a><a class="btn btn-success btn-variacion" href="${rootURL}/templates/GMP_template_version_1.0.xlsx"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 2007-2013)</a></dd>
-					</dl>
-					<dl class="dl-horizontal">
-						<dt>[@s.text name="sibsp.application.ocurrence.name"/]<br/><span class="type-element">[@s.text name="sibsp.application.ocurrence.type.basic"/]</span></dt>
-						<dd>[@s.text name="sibsp.application.ocurrence.minimal.description"/]<br/> <a class="btn btn-success btn-variacion" href="${rootURL}/templates/DwC_min_elements_template_version_1.0.xls"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 97-2003)</a><a class="btn btn-success btn-variacion" href="${rootURL}/templates/DwC_min_elements_template_version_1.0.xlsx"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 2007-2013)</a></dd>
-					</dl>
-					<dl class="dl-horizontal">
-						<dt>[@s.text name="sibsp.application.ocurrence.name"/]<br/><span class="type-element">[@s.text name="sibsp.application.ocurrence.type.complete"/]</span></dt>
-						<dd>[@s.text name="sibsp.application.ocurrence.complete.description"/]<br/> <a class="btn btn-success btn-variacion" href="${rootURL}/templates/DwC_complete_elements_template_version_1.0.xls"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 97-2003)</a><a class="btn btn-success btn-variacion" href="${rootURL}/templates/DwC_complete_elements_template_version_1.0.xlsx"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 2007-2013)</a></dd>
+						<dd>[@s.text name="sibsp.application.metadatafile.description"/]<br/> <a class="btn btn-success btn-variacion" href="${rootURL}/templates/Plantilla_Metadatos_v2.0.xls"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 97-2003)</a><a class="btn btn-success btn-variacion" href="${rootURL}/templates/Plantilla_Metadatos_v2.0.xlsx"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 2007-2013)</a></dd>
 					</dl>
 					<dl class="dl-horizontal">
 						<dt>[@s.text name="sibsp.application.taxonomic.name"/]</dt>
-						<dd>[@s.text name="sibsp.application.taxonomic.description"/]<br/> <a class="btn btn-success btn-variacion" href="${rootURL}/templates/DwC_taxonomic_list_template_version_1.0.xls"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 97-2003)</a><a class="btn btn-success btn-variacion" href="${rootURL}/templates/DwC_taxonomic_list_template_version_1.0.xlsx"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 2007-2013)</a></dd>
+						<dd>[@s.text name="sibsp.application.taxonomic.description"/]<br/> <a class="btn btn-success btn-variacion" href="${rootURL}/templates/Plantilla_Listas_Completa_v2.0.xls"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 97-2003)</a><a class="btn btn-success btn-variacion" href="${rootURL}/templates/Plantilla_Listas_Completa_v2.0.xlsx"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 2007-2013)</a></dd>
+					</dl>
+					<dl class="dl-horizontal">
+						<dt>[@s.text name="sibsp.application.ocurrence.name"/]</dt>
+						<dd>[@s.text name="sibsp.application.ocurrence.description"/]<br/> <a class="btn btn-success btn-variacion" href="${rootURL}/templates/Plantilla_DwC_Completa_v2.0.xls"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 97-2003)</a><a class="btn btn-success btn-variacion" href="${rootURL}/templates/Plantilla_DwC_Completa_v2.0.xlsx"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 2007-2013)</a></dd>
 					</dl>
 				</div>	
 			</div>
