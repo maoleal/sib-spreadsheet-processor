@@ -48,10 +48,6 @@
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
               <li class="active"><a href="${rootURL}">[@s.text name="sibsp.application.home"/]</a></li>
-              <li><a href="${rootURL}/administration/">[@s.text name="sibsp.application.configuration"/]</a></li>
-              <!-- <li><a href="#about">[@s.text name="sibsp.application.about"/]</a></li> -->
-              <!-- <li><a href="#contact">[@s.text name="sibsp.application.privacy"/]</a></li> -->
-              <!-- <li><a href="#contact">[@s.text name="sibsp.application.contact"/]</a></li> -->
             </ul>
           </div><!--/.nav-collapse -->
         </div>
