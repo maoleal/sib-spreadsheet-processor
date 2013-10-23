@@ -80,7 +80,7 @@ public interface ResourceManager {
    * @throws IOException
    * @throws InvalidFormatException
    */
-  public Resource processMetadataSpreadsheetPart(File sourceFile, String fileName, ActionLogger actionLogger)
+  public Resource processMetadataSpreadsheetPart(String fileName, ActionLogger actionLogger)
     throws InvalidFormatException, IOException, NullPointerException;
 
   /**

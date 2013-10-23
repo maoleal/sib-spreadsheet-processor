@@ -263,12 +263,13 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
    * @throws InvalidFormatException
    */
   @Override
-  public Resource processMetadataSpreadsheetPart(File sourceFile, String fileName, ActionLogger actionLogger)
+  public Resource processMetadataSpreadsheetPart(String fileName, ActionLogger actionLogger)
     throws InvalidFormatException, IOException, NullPointerException {
     Resource resource = new Resource();
     Eml eml = new Eml();
-    Workbook template = WorkbookFactory.create(sourceFile);
+    //Workbook template = WorkbookFactory.create(sourceFile);
 
+    /*
     readBasicMetaData(eml, template, resource);
     readGeographicCoverage(eml, template);
     readTaxonomicCoverage(eml, template);
@@ -281,6 +282,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
     readCollectionData(eml, template);
     readExternallinks(eml, template);
     readAdditionalMetadata(eml, template);
+    */
 
     // Set resource details
     resource.setFileName(fileName);
@@ -343,11 +345,12 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
         + resource.getUniqueID().toString(), e);
     }
     // publish also as RTF
-    publishRtf(resource, action);
+    //publishRtf(resource, action);
 
     // copy current rtf version.
     File trunkRtfFile = dataDir.resourceRtfFile(resource.getUniqueID().toString());
     File versionedRtfFile = dataDir.resourceRtfFile(resource.getUniqueID().toString(), version);
+    /*
     try {
       FileUtils.copyFile(trunkRtfFile, versionedRtfFile);
     } catch (IOException e) {
@@ -355,6 +358,7 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
       throw new PublicationException(PublicationException.TYPE.EML, "Can't publish rtf file for resource "
         + resource.getUniqueID().toString(), e);
     }
+    */
   }
 
   /**
@@ -940,3 +944,4 @@ public class ResourceManagerImplementation extends BaseManager implements Resour
   }
 
 }
+

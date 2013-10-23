@@ -84,27 +84,37 @@ public class Xls2Csv extends BaseManager {
         if (columnCoreOcurrenceMapping.containsKey(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)))) {
           entries[counter] =
             columnCoreOcurrenceMapping.get(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(0);
+          log.info("counterColumn: "+ counter+ " : entries[counter]");
+          log.info(" value: "+ columnCoreOcurrenceMapping.get(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))));
           if (columnCoreOcurrenceMapping.get(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(1)
             .equalsIgnoreCase("required")) {
             // This column of template couldn't be empty, so map it
             columnLocationRequiredElements.put(counter,
               columnCoreOcurrenceMapping.get(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(0));
             columnsWithRequiredElements++;
+          }else{
+        	  log.info("No es requerido"+columnCoreOcurrenceMapping.get(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(1)); 
           }
         }
       } else {
         entries[counter] = "";
       }
     }
+    //si el número de columnas requeridas es diferente del establecido en el archivo de configuración
     if (columnsWithRequiredElements != Integer
       .valueOf(columnCoreOcurrenceMapping.get("Total required elements").get(0))) {
       throw new InvalidFormatException(baseAction.getText("sibsp.application.portal.error.with.template.elements.data"));
     }
     writer.writeNext(entries);
+    
+    for (int i=0; i < entries.length;i++){
+    	log.info(entries[i]);
+    }
 
     while (rowIterator.hasNext()) {
       row = rowIterator.next();
       if (row.getRowNum() != 0) {
+    	  log.info("totalColumns: "+ totalColumns);
         for (int counter = 0; counter < totalColumns; counter++) {
           log.info("Fila: " + row.getRowNum() + " Columna: " + counter);
           if (!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).isEmpty()) {
@@ -124,75 +134,191 @@ public class Xls2Csv extends BaseManager {
     writer.close();
     return file;
   }
-
+  
   public File convertExcelCoreCompleteToCsv(Resource resource, File sourceFile, ActionLogger actionLogger)
-    throws IOException, InvalidFormatException {
-    Workbook template = WorkbookFactory.create(sourceFile);
-    File file = dataDir.sourceExcelFile(resource, "data");
-    OutputStream csvFile = new FileOutputStream(file);
-    CSVWriter writer = new CSVWriter(new OutputStreamWriter(csvFile, "UTF-8"), '\t', CSVWriter.NO_QUOTE_CHARACTER);
+		    throws IOException, InvalidFormatException {
+		    Workbook template = WorkbookFactory.create(sourceFile);
+		    File file = dataDir.sourceExcelFile(resource, "data");
+		    OutputStream csvFile = new FileOutputStream(file);
+		    CSVWriter writer = new CSVWriter(new OutputStreamWriter(csvFile, "UTF-8"), '\t', CSVWriter.NO_QUOTE_CHARACTER);
 
-    // Map of required columns
+		    // Map of required columns
+		    Map<Integer, String> columnLocationRequiredElements = new HashMap<Integer, String>();
+
+		    // Read first row columns names
+		    Sheet sheet = template.getSheet("Plantilla");
+		    int totalColumns = sheet.getRow(0).getLastCellNum();
+		    log.info("Num of cols: "+totalColumns);
+		    int columnsWithRequiredElements = 0;
+		    Iterator<Row> rowIterator = sheet.rowIterator();
+		    String[] entries = new String[totalColumns];
+		    Row row = sheet.getRow(0);
+		    for (int counter = 0; counter < totalColumns; counter++) {
+		      if (!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).isEmpty()) {
+		        if (columnCoreOcurrenceRelationshipAndMeasurementMapping.containsKey(readCellValue(row.getCell(counter,
+		          Row.CREATE_NULL_AS_BLANK)))) {
+		          entries[counter] =
+		            columnCoreOcurrenceRelationshipAndMeasurementMapping.get(
+		              readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(0);
+		          if (columnCoreOcurrenceRelationshipAndMeasurementMapping.get(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(1).equalsIgnoreCase("required")) {
+		            // This column of template couldn't be empty, so map it
+		            columnLocationRequiredElements.put(
+		              counter,
+		              columnCoreOcurrenceRelationshipAndMeasurementMapping.get(
+		                readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(0));
+		            columnsWithRequiredElements++;
+		          }
+		        }
+		      } else {
+		        entries[counter] = "";
+		      }
+		    }
+		    
+		    if (columnsWithRequiredElements != Integer.valueOf(columnCoreOcurrenceRelationshipAndMeasurementMapping.get(
+		      "Total required elements").get(0))) {
+		      throw new InvalidFormatException(baseAction.getText("sibsp.application.portal.error.with.template.elements.data"));
+		    }
+		    writer.writeNext(entries);
+
+		    int[] elmMiss=reviewSpreedsheet(resource, sourceFile, actionLogger);
+		    
+		    String errE="";
+		    
+		    for(int i=0;i < elmMiss.length; i++){
+		    	System.out.println("Casilla: "+i+" valor: "+elmMiss[i]);
+		    }
+		    
+		    Row rowOne=sheet.getRow(1);
+		    for(int j=0; j<elmMiss.length;j++){
+		    	if(elmMiss[j]!=0){
+		    		errE=errE+" "+readCellValue(rowOne.getCell(j, Row.CREATE_NULL_AS_BLANK))+" Columna: "+(j+1)+" Número de celdas vacias: "+elmMiss[j]+" ";
+		    	}
+		    }
+		    
+		    if(!errE.equals("")){
+		    	throw new InvalidFormatException(baseAction.getTextWithDynamicArgs("sibsp.application.portal.error.element.notempty", errE));
+		    	
+		    }
+		    
+		    while (rowIterator.hasNext()) {
+		      row = rowIterator.next();
+		      if (row.getRowNum() != 0 && row.getRowNum() != 1) {
+		        for (int counter = 0; counter < totalColumns; counter++) {
+		          if (!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).isEmpty()) {
+		            entries[counter] = readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK));
+		          } else { 
+		        	if (columnLocationRequiredElements.containsKey(counter)) {
+		        		throw new InvalidFormatException(baseAction.getTextWithDynamicArgs("sibsp.application.portal.error.element.notempty", columnLocationRequiredElements.get(counter)));
+		    		} else {
+		    			entries[counter] = "";
+		    		}
+		          }
+		        }
+
+		        writer.writeNext(entries);
+		      }
+		    }
+
+		    writer.close();
+		    return file;
+		  }
+
+  
+private int[] reviewSpreedsheet(Resource resource, File sourceFile, ActionLogger actionLogger) throws IOException, InvalidFormatException{
+	Workbook template = WorkbookFactory.create(sourceFile);
+	File file = dataDir.sourceExcelFile(resource, "data");
+	//OutputStream csvFile = new FileOutputStream(file);
+	
+	// Map of required columns
     Map<Integer, String> columnLocationRequiredElements = new HashMap<Integer, String>();
-
     // Read first row columns names
     Sheet sheet = template.getSheet("Plantilla");
     int totalColumns = sheet.getRow(0).getLastCellNum();
+    System.out.println("Num of cols: "+totalColumns);
     int columnsWithRequiredElements = 0;
     Iterator<Row> rowIterator = sheet.rowIterator();
     String[] entries = new String[totalColumns];
     Row row = sheet.getRow(0);
-    for (int counter = 0; counter < totalColumns; counter++) {
-      log.info("Fila: " + row.getRowNum() + " Columna: " + counter);
-      if (!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).isEmpty()) {
-        if (columnCoreOcurrenceRelationshipAndMeasurementMapping.containsKey(readCellValue(row.getCell(counter,
-          Row.CREATE_NULL_AS_BLANK)))) {
-          entries[counter] =
-            columnCoreOcurrenceRelationshipAndMeasurementMapping.get(
-              readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(0);
-          if (columnCoreOcurrenceRelationshipAndMeasurementMapping
-            .get(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(1).equalsIgnoreCase("required")) {
-            // This column of template couldn't be empty, so map it
-            columnLocationRequiredElements.put(
-              counter,
-              columnCoreOcurrenceRelationshipAndMeasurementMapping.get(
-                readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(0));
-            columnsWithRequiredElements++;
-          }
-        }
-      } else {
-        entries[counter] = "";
-      }
+    
+    for(int counter = 0; counter < totalColumns; counter++){
+    	System.out.println("Fila*: " + row.getRowNum() + " Columna: " + counter);
+    	if(!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).isEmpty()){
+    		if(columnCoreOcurrenceRelationshipAndMeasurementMapping.containsKey(readCellValue(row.getCell(counter,Row.CREATE_NULL_AS_BLANK)))){
+    			entries[counter] =columnCoreOcurrenceRelationshipAndMeasurementMapping.get(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(0);
+    			if(columnCoreOcurrenceRelationshipAndMeasurementMapping.get(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(1).equalsIgnoreCase("required")){
+    				columnLocationRequiredElements.put(counter,columnCoreOcurrenceRelationshipAndMeasurementMapping.get(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(0));
+    				columnsWithRequiredElements++;
+    			}
+    		}
+    	}else{
+    		entries[counter] = "";
+    	}
     }
-    if (columnsWithRequiredElements != Integer.valueOf(columnCoreOcurrenceRelationshipAndMeasurementMapping.get(
-      "Total required elements").get(0))) {
-      throw new InvalidFormatException(baseAction.getText("sibsp.application.portal.error.with.template.elements.data"));
+    
+    if(columnsWithRequiredElements != Integer.valueOf(columnCoreOcurrenceRelationshipAndMeasurementMapping.get("Total required elements").get(0))){
+    	throw new InvalidFormatException(baseAction.getText("sibsp.application.portal.error.with.template.elements.data"));
     }
-    writer.writeNext(entries);
+    
+    
+    Row rowZero=sheet.getRow(0);
+    int[] missEl = new int[totalColumns];
+    //String missE="";
+    boolean isFull=false;
+    for(int in=0; in<totalColumns; in++){
+		missEl[in]=0;
+	}
+    
+    int position=-1;
+    
+    for(int k=0; k < totalColumns; k++){
+		if(readCellValue(rowZero.getCell(k, Row.CREATE_NULL_AS_BLANK)).equals("dataGeneralizations")){
+			position=k;
+		}
+	}
+    
+    while(rowIterator.hasNext()){
+    	row = rowIterator.next();
+    	isFull=false;
+    	if(position!=-1){
+    		if(!readCellValue(row.getCell(position, Row.CREATE_NULL_AS_BLANK)).isEmpty()){
+    			isFull=true;
+    		}
+    	}
+    	
+    	if(row.getRowNum() != 0 && row.getRowNum() != 1){
+    		System.out.println("#row: "+(row.getRowNum()+1));
+    		for(int counter = 0; counter < totalColumns; counter++){
+    			System.out.println("columna: "+counter);
+    			if(!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).trim().isEmpty()){
+    				System.out.println(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)));
+    			}else{
+    				System.out.println("celda vacia: "+readCellValue(rowZero.getCell(counter, Row.CREATE_NULL_AS_BLANK)));
+    				String colmN=readCellValue(rowZero.getCell(counter, Row.CREATE_NULL_AS_BLANK));
+    				if(isFull){
+    					if((colmN.equals("locality")||colmN.equals("decimalLatitude"))||(colmN.equals("decimalLongitude"))){
+    						System.out.println("No se revisa");
+    					}else{
+    						if(columnLocationRequiredElements.containsKey(counter)){
+    							missEl[counter]++;
+    						}
+    					}
+    				}else{
+    					if(columnLocationRequiredElements.containsKey(counter)){
+    						missEl[counter]++;
+    					}
+    				}
+    				System.out.println("Número después: "+missEl[counter]);
+    			}
+    		}
+    	}
+    }
+    
+    return missEl;
+}
 
-    while (rowIterator.hasNext()) {
-      row = rowIterator.next();
-      if (row.getRowNum() != 0 && row.getRowNum() != 1) {
-        for (int counter = 0; counter < totalColumns; counter++) {
-          log.info("Fila: " + row.getRowNum() + " Columna: " + counter);
-          if (!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).isEmpty()) {
-            entries[counter] = readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK));
-          } else {
-            if (columnLocationRequiredElements.containsKey(counter)) {
-              throw new InvalidFormatException(baseAction.getTextWithDynamicArgs(
-                "sibsp.application.portal.error.element.notempty", columnLocationRequiredElements.get(counter)));
-            } else {
-              entries[counter] = "";
-            }
-          }
-        }
-        writer.writeNext(entries);
-      }
-    }
-
-    writer.close();
-    return file;
-  }
+private void extracted(String missE) throws InvalidFormatException {
+	throw new InvalidFormatException(baseAction.getTextWithDynamicArgs("sibsp.application.portal.error.element.notempty", missE));
+}
 
   public File convertExcelTaxonomicToCsv(Resource resource, File sourceFile, ActionLogger actionLogger)
     throws IOException, InvalidFormatException {

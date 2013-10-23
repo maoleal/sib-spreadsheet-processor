@@ -44,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/sib-spreadsheet-processor"><img src="${rootURL}/images/logo_sib_50px.png" alt="Logo SIB Colombia">Spreadsheet Processor</a>
+          <a class="brand" href="/sib-spreadsheet-processor"><img src="${rootURL}/images/logo_sib_50px.png" alt="Logo SIB Colombia">Reporte al SiB</a>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
               <li class="active"><a href="${rootURL}">[@s.text name="sibsp.application.home"/]</a></li>
