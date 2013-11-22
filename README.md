@@ -3,8 +3,8 @@ sib-spreadsheet-processor
 
 Processor to convert primary biodiversity data documented in spreadsheets format to DwC-A
 
-### Test version
-[http://ec2-23-22-76-243.compute-1.amazonaws.com/sib-sp/](http://ec2-23-22-76-243.compute-1.amazonaws.com/sib-sp/ "Spreadsheet processor test website")
+### Online version
+[http://tools.sibcolombia.net/excel-a-dwca/](http://tools.sibcolombia.net/excel-a-dwca/ "Spreadsheet processor website")
 ![Sib Spreadsheet processor screenshoot](http://sib-colombia.github.io/sib-spreadsheet-processor/images/spdr.png)
 
 ### Glossary
