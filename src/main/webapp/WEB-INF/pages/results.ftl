@@ -26,6 +26,7 @@
 						</dd>
 					</dl>
 					[/#if]
+					<!--
 					<dl class="dl-horizontal">
 						<dt>[@s.text name="sibsp.portal.overview.published.eml"/]</dt>
 						<dd>
@@ -33,6 +34,7 @@
 							(${emlFormattedSize})
 						</dd>
 					</dl>
+
 					<dl class="dl-horizontal">
 						<dt>[@s.text name="sibsp.portal.resource.published.rtf"/]</dt>
 						<dd>
@@ -40,6 +42,7 @@
 							(${rtfFormattedSize})
 						</dd>
 					</dl>
+					-->
 					[/#if]
 				</div>	
 			</div>

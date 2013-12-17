@@ -29,6 +29,7 @@ import net.sibcolombia.sibsp.service.BaseManager;
 import net.sibcolombia.sibsp.struts2.SimpleTextProvider;
 import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.openxml4j.exceptions.InvalidOperationException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -183,21 +184,15 @@ public class Xls2Csv extends BaseManager {
 		    int[] elmMiss=reviewSpreedsheet(resource, sourceFile, actionLogger);
 		    
 		    String errE="";
-		    
-		    for(int i=0;i < elmMiss.length; i++){
-		    	System.out.println("Casilla: "+i+" valor: "+elmMiss[i]);
-		    }
-		    
 		    Row rowOne=sheet.getRow(1);
 		    for(int j=0; j<elmMiss.length;j++){
 		    	if(elmMiss[j]!=0){
-		    		errE=errE+" "+readCellValue(rowOne.getCell(j, Row.CREATE_NULL_AS_BLANK))+" Columna: "+(j+1)+" Número de celdas vacias: "+elmMiss[j]+" ";
+		    		errE=errE+" "+readCellValue(rowOne.getCell(j, Row.CREATE_NULL_AS_BLANK))+" Columna: "+(j+1)+" Número de celdas vacias: "+elmMiss[j]+"\n";
 		    	}
 		    }
 		    
 		    if(!errE.equals("")){
-		    	throw new InvalidFormatException(baseAction.getTextWithDynamicArgs("sibsp.application.portal.error.element.notempty", errE));
-		    	
+		    	throw new InvalidOperationException(errE);
 		    }
 		    
 		    while (rowIterator.hasNext()) {
@@ -234,14 +229,12 @@ private int[] reviewSpreedsheet(Resource resource, File sourceFile, ActionLogger
     // Read first row columns names
     Sheet sheet = template.getSheet("Plantilla");
     int totalColumns = sheet.getRow(0).getLastCellNum();
-    System.out.println("Num of cols: "+totalColumns);
     int columnsWithRequiredElements = 0;
     Iterator<Row> rowIterator = sheet.rowIterator();
     String[] entries = new String[totalColumns];
     Row row = sheet.getRow(0);
     
     for(int counter = 0; counter < totalColumns; counter++){
-    	System.out.println("Fila*: " + row.getRowNum() + " Columna: " + counter);
     	if(!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).isEmpty()){
     		if(columnCoreOcurrenceRelationshipAndMeasurementMapping.containsKey(readCellValue(row.getCell(counter,Row.CREATE_NULL_AS_BLANK)))){
     			entries[counter] =columnCoreOcurrenceRelationshipAndMeasurementMapping.get(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))).get(0);
@@ -286,17 +279,14 @@ private int[] reviewSpreedsheet(Resource resource, File sourceFile, ActionLogger
     	}
     	
     	if(row.getRowNum() != 0 && row.getRowNum() != 1){
-    		System.out.println("#row: "+(row.getRowNum()+1));
     		for(int counter = 0; counter < totalColumns; counter++){
-    			System.out.println("columna: "+counter);
     			if(!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).trim().isEmpty()){
-    				System.out.println(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)));
+    				System.out.println(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))); //*********
     			}else{
-    				System.out.println("celda vacia: "+readCellValue(rowZero.getCell(counter, Row.CREATE_NULL_AS_BLANK)));
     				String colmN=readCellValue(rowZero.getCell(counter, Row.CREATE_NULL_AS_BLANK));
     				if(isFull){
     					if((colmN.equals("locality")||colmN.equals("decimalLatitude"))||(colmN.equals("decimalLongitude"))){
-    						System.out.println("No se revisa");
+    						System.out.println("No se revisa"); //*********
     					}else{
     						if(columnLocationRequiredElements.containsKey(counter)){
     							missEl[counter]++;
@@ -307,7 +297,6 @@ private int[] reviewSpreedsheet(Resource resource, File sourceFile, ActionLogger
     						missEl[counter]++;
     					}
     				}
-    				System.out.println("Número después: "+missEl[counter]);
     			}
     		}
     	}

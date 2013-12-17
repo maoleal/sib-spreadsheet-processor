@@ -33,7 +33,21 @@
 					</dl>
 				</div>	
 			</div>
-			[@s.fielderror cssClass="alert alert-error" fieldName="file"/]
+
+			[#if fieldErrors?exists]
+				[#assign num=fieldErrors.values()?size]
+				[#if num != 0]
+					<div class="alert alert-error">	
+						[@s.text name="sibsp.application.error.missing"/]
+						[#list fieldErrors.values() as item]
+						<li><span>${item[0]}</span></li>
+						[/#list]
+						[@s.text name="sibsp.application.error.adv"/]
+					</div>
+				[/#if]
+			[/#if]
+
+
 		</div>
 
 			

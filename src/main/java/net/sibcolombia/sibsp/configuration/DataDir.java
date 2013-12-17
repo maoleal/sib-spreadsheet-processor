@@ -135,14 +135,12 @@ public class DataDir implements ServletContextListener {
     }
     org.gbif.ipt.utils.FileUtils.copyStreamToFile(input, configFile("about.ftl"));
 
-    //input = streamUtils.classpathStream("configurationFiles/columncoreocurrencemapping.csv");
-    input = streamUtils.classpathStream("configurationFiles/columncoreocurrencemapping1.csv");
+    input = streamUtils.classpathStream("configurationFiles/columncoreocurrencemapping.csv");
     if (input == null) {
       throw new InvalidConfigException(TYPE.CONFIG_WRITE,
         "Cannot read required classpath resources to create new data dir!");
     }
-    //org.gbif.ipt.utils.FileUtils.copyStreamToFile(input, configFile("columncoreocurrencemapping.csv"));
-    org.gbif.ipt.utils.FileUtils.copyStreamToFile(input, configFile("columncoreocurrencemapping1.csv"));
+    org.gbif.ipt.utils.FileUtils.copyStreamToFile(input, configFile("columncoreocurrencemapping.csv"));
 
     input = streamUtils.classpathStream("configurationFiles/columncoretaxonmapping.csv");
     if (input == null) {

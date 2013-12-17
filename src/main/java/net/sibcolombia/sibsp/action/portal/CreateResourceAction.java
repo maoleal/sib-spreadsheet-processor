@@ -49,6 +49,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.openxml4j.exceptions.InvalidOperationException;
 
 
 public class CreateResourceAction extends ManagerBaseAction {
@@ -398,20 +399,31 @@ public class CreateResourceAction extends ManagerBaseAction {
       }
     } catch (InvalidFileExtension error) {
       log.error("Spreadsheet template file extension is invalid.");
-      addFieldError("file", getText("sibsp.application.error.invalidextension"));
+      addActionError(getText("sibsp.application.error.invalidextension"));
       return INPUT;
     } catch (InvalidFileName error) {
       log.error("Spreadsheet template file name is invalid.");
-      addFieldError("file", getText("sibsp.application.error.invalidfilename"));
+      addActionError(getText("sibsp.application.error.invalidfilename"));
       return INPUT;
     } catch (InvalidFormatException error) {
       log.error("Spreadsheet template file format error.");
       if (error.getMessage().isEmpty()) {
-        addFieldError("file", getText("sibsp.application.error.invalidfiletype"));
+    	  addActionError(getText("sibsp.application.error.invalidfiletype"));
       } else {
-        addFieldError("file", error.getMessage());
+    	addFieldError("column", error.getMessage());
       }
       return INPUT;
+    } catch (InvalidOperationException error) {
+        log.error("Spreadsheet template file format error.");
+        if (error.getMessage().isEmpty()) {
+          addFieldError("other", getText("sibsp.application.error.invalidfiletype"));
+        } else {
+      	String[] errors=error.getMessage().split("\n");
+      		for(int i=0; i<errors.length; i++){
+      			addFieldError(i+"", errors[i]);
+      		}
+        }
+        return INPUT;
     } catch (ImportException e) {
       log.error("File import error.");
       addFieldError("file", getText("sibsp.application.error.importexception"));
