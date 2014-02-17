@@ -25,7 +25,7 @@
 					-->
 					<dl class="dl-horizontal">
 						<dt>[@s.text name="sibsp.application.taxonomic.name"/]</dt>
-						<!--<dd>[@s.text name="sibsp.application.taxonomic.description"/]<br/>--> <a class="btn btn-success btn-variacion" href="${rootURL}/templates/Plantilla_reporte_al_sib.xlsx"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 2007-2013)</a></dd>
+						<!--<dd>[@s.text name="sibsp.application.taxonomic.description"/]<br/>--> <a class="btn btn-success btn-variacion" href="${rootURL}/templates/Plantilla_de_Registros_Biologicos_CPSiB.xlsx"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 2007-2013)</a></dd>
 					</dl>
 					<dl class="dl-horizontal">
 						<dt>[@s.text name="sibsp.application.ocurrence.name"/]</dt>
@@ -42,7 +42,7 @@
 						[#list fieldErrors.values() as item]
 						<li><span>${item[0]}</span></li>
 						[/#list]
-						[@s.text name="sibsp.application.error.adv"/]
+						
 					</div>
 				[/#if]
 			[/#if]

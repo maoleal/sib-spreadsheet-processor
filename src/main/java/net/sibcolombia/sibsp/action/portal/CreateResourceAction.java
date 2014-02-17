@@ -390,11 +390,13 @@ public class CreateResourceAction extends ManagerBaseAction {
             tmpFiles.get("AttributesDwCComplete").getFile().delete();
           }
         } else {
-          addFieldError("file", "Debe subir la plantilla.");
+          //addFieldError("file", "Debe subir la plantilla.");
+          addActionError("Debe subir la plantilla.");
           return INPUT;
         }
       } else {
-        addFieldError("file", "Debe subir la plantilla.");
+        //addFieldError("file", "Debe subir la plantilla.");
+    	addActionError("Debe subir la plantilla.");
         return INPUT;
       }
     } catch (InvalidFileExtension error) {
@@ -426,7 +428,9 @@ public class CreateResourceAction extends ManagerBaseAction {
         return INPUT;
     } catch (ImportException e) {
       log.error("File import error.");
-      addFieldError("file", getText("sibsp.application.error.importexception"));
+      //e.printStackTrace(System.out);
+      //addFieldError("file", getText("sibsp.application.error.importexception"));
+      addActionError(getText("sibsp.application.error.importexception"));
       return INPUT;
     } catch (AlreadyExistingException e) {
       log.error("File already exist.");
@@ -517,9 +521,10 @@ public class CreateResourceAction extends ManagerBaseAction {
         if (validFileName()) {
           // the file to upload to
           FileData fileData = new FileData(fileFileNames.get(i), dataDir.tmpFile("temp", fileFileNames.get(i)));
-          if (onlyFileName.equalsIgnoreCase("Plantilla_reporte_al_sib")) {
+          if (onlyFileName.equalsIgnoreCase("Plantilla_de_Registros_Biologicos_CPSiB")) {
             tmpFiles.put("AttributesDwCComplete", fileData);
           }
+          //tmpFiles.put("AttributesDwCComplete", fileData);
           // retrieve the file data
           InputStream input = null;
           OutputStream output = null;
@@ -577,7 +582,7 @@ public class CreateResourceAction extends ManagerBaseAction {
     if (onlyFileName == null) {
       return false;
     } else {
-      if (onlyFileName.equalsIgnoreCase("Plantilla_reporte_al_sib")) {
+      if (onlyFileName.equalsIgnoreCase("Plantilla_de_Registros_Biologicos_CPSiB")) {
         this.existAttributesFile = true;
         return true;
       } else {

@@ -187,7 +187,8 @@ public class Xls2Csv extends BaseManager {
 		    Row rowOne=sheet.getRow(1);
 		    for(int j=0; j<elmMiss.length;j++){
 		    	if(elmMiss[j]!=0){
-		    		errE=errE+" "+readCellValue(rowOne.getCell(j, Row.CREATE_NULL_AS_BLANK))+" Columna: "+(j+1)+" Número de celdas vacias: "+elmMiss[j]+"\n";
+		    		//errE=errE+" "+readCellValue(rowOne.getCell(j, Row.CREATE_NULL_AS_BLANK))+" Columna: "+(j+1)+" Número de celdas vacias: "+elmMiss[j]+"\n";
+		    		errE=errE+"Columna: "+(j+1)+" "+readCellValue(rowOne.getCell(j, Row.CREATE_NULL_AS_BLANK))+". Número de celdas vacias: "+elmMiss[j]+"\n";
 		    	}
 		    }
 		    
@@ -281,12 +282,12 @@ private int[] reviewSpreedsheet(Resource resource, File sourceFile, ActionLogger
     	if(row.getRowNum() != 0 && row.getRowNum() != 1){
     		for(int counter = 0; counter < totalColumns; counter++){
     			if(!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).trim().isEmpty()){
-    				System.out.println(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))); //*********
+    				//System.out.println(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK))); 
     			}else{
     				String colmN=readCellValue(rowZero.getCell(counter, Row.CREATE_NULL_AS_BLANK));
     				if(isFull){
-    					if((colmN.equals("locality")||colmN.equals("decimalLatitude"))||(colmN.equals("decimalLongitude"))){
-    						System.out.println("No se revisa"); //*********
+    					if((colmN.equals("locality")||colmN.equals("decimalLatitude"))||(colmN.equals("decimalLongitude"))||(colmN.equals("geodeticDatum"))){
+    						log.info("dataGeneralizations cell is filled"); 
     					}else{
     						if(columnLocationRequiredElements.containsKey(counter)){
     							missEl[counter]++;
