@@ -11,15 +11,11 @@
 
     <!-- Styles -->
     <link href="${rootURL}/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
+
     <link href="${rootURL}/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="${rootURL}/css/style2.css" rel="stylesheet">
     <link href="${rootURL}/css/fineuploader-3.6.3.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Economica:400,700' rel='stylesheet' type='text/css'> <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,400,400italic' rel='stylesheet' type='text/css'>
 
     <!-- Code for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -44,7 +40,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/sib-spreadsheet-processor"><img src="${rootURL}/images/logo_sib_50px.png" alt="Logo SIB Colombia">Reporte al SiB</a>
+          <a class="brand" href="/sib-spreadsheet-processor"><img src="${rootURL}/images/logo_sib_portal.png" alt="SIB Colombia"></a>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
               <li class="active"><a href="${rootURL}">[@s.text name="sibsp.application.home"/]</a></li>

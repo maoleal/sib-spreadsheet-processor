@@ -108,7 +108,7 @@
   [class*="span"] {
     float: left;
     min-height: 1px;
-    margin-left: 30px;
+    margin-left: 10px;
   }
   .container,
   .navbar-static-top .container,
@@ -144,7 +144,7 @@
     width: 370px;
   }
   .span3 {
-    width: 270px;
+    width: 230px;
   }
   .span2 {
     width: 170px;
@@ -206,8 +206,8 @@
     float: left;
     width: 100%;
     min-height: 30px;
-    margin-left: 2.564102564102564%;
-    *margin-left: 2.5109110747408616%;
+    margin-left: 1.564102564102564%;
+    *margin-left: 1.5109110747408616%;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;

@@ -1,44 +1,25 @@
 [#ftl]
 [#include "/WEB-INF/pages/include/header.ftl"]
 <div class="container">
-	<div class="row">
-	
-		<div class="span8">
-			<div class="content content-full-witdh">    	
-				<div class="content-inner">
-    				<h2>[@s.text name="sibsp.application.title.welcome"/]</h2>
-					<h3>[@s.text name="sibsp.application.instructions.title"/]</h3>
-		
-					<ol>
-						<li>[@s.text name="sibsp.application.firststep"/]</li>
-						<li>[@s.text name="sibsp.application.secondstep"/]</li>
-						<li>[@s.text name="sibsp.application.thirdstep"/]</li>
-						<li>[@s.text name="sibsp.application.fourthstep"/]</li>
-					</ol>
-					<hr/>
-					<h3>[@s.text name="sibsp.application.templateslist.title"/]</h3>
-					<!--
-					<dl class="dl-horizontal">
-						<dt>[@s.text name="sibsp.application.metadatafile.name"/]</dt>
-						<dd>[@s.text name="sibsp.application.metadatafile.description"/]<br/> <a class="btn btn-success btn-variacion" href="${rootURL}/templates/Plantilla_Metadatos_v2.0.xlsx"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 2007-2013)</a></dd>
-					</dl>
-					-->
-					<dl class="dl-horizontal">
-						<dt>[@s.text name="sibsp.application.taxonomic.name"/]</dt>
-						<!--<dd>[@s.text name="sibsp.application.taxonomic.description"/]<br/>--> <a class="btn btn-success btn-variacion" href="${rootURL}/templates/Plantilla_de_Registros_Biologicos_CPSiB.xlsx"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (Excel 2007-2013)</a></dd>
-					</dl>
-					<dl class="dl-horizontal">
-						<dt>[@s.text name="sibsp.application.ocurrence.name"/]</dt>
-						<!--<dd>[@s.text name="sibsp.application.ocurrence.description"/]<br/>--> <a class="btn btn-success btn-variacion" href="${rootURL}/instructive/Instructivo_Plantilla_Reporte_al_SiB.pdf"><i class="icon-download-alt"></i>[@s.text name="button.download"/] (PDF)</a></dd>
-					</dl>
-				</div>	
-			</div>
 
+	<div class="row">
+		<h1 class="intro">[@s.text name="sibsp.application.title.welcome"/]</h1>
+		<p class="intro">El validador de Darwin Core archive para archivos de excel es una herramienta web que transforma archivos de MS Excel preconfigurados por el SiB Colombia en archivos de Darwin Core de GBIF. Desntro de un archivo Darwin Core existen dos archivos: una hoja de cálculo contiene el perfil de metadatos y un segundo archivo contiene los datos.</p>
+
+		<a class="span3" href="${rootURL}/instructive/Instructivo_Plantilla_Reporte_al_SiB.pdf">
+				<div class="content-inner">
+					<span class="numbers">1</span>
+						<p>[@s.text name="sibsp.application.firststep"/]</p>
+					<hr/>
+					<img src="${rootURL}/images/pdf_ico.png"/>
+					<strong>DESCARGAR<br/>INSTRUCTIVO</strong>
+			</div>
+		</a>
 			[#if fieldErrors?exists]
 				[#assign num=fieldErrors.values()?size]
 				[#if num != 0]
 					<div class="alert alert-error">	
-						[@s.text name="sibsp.application.error.missing"/]
+						<p>[@s.text name="sibsp.application.error.</p>missing"/]
 						[#list fieldErrors.values() as item]
 						<li><span>${item[0]}</span></li>
 						[/#list]
@@ -47,24 +28,43 @@
 				[/#if]
 			[/#if]
 
-
-		</div>
-
-			
 		
-		<div class="span4">
-			<div class="content content-full-witdh">    	
+		<a class="span3" href="${rootURL}/templates/Plantilla_de_Registros_Biologicos_CPSiB.xlsx">
 				<div class="content-inner">
-				
-					<div id="new-resource">
-						<h3>[@s.text name="sibsp.application.newtemplate.title"/]</h3>
-						[#include "include/upload_new_template.ftl"/]
-					</div>
-    
-				</div>	
+					<span class="numbers">2</span>
+					<p>[@s.text name="sibsp.application.secondstep"/]</p>
+					<hr/>
+					<img src="${rootURL}/images/xls_ico.png"/>
+					<strong>DESCARGAR<br/>PLANTILLA</strong><br/>
+					Excel 2007-2013
+				</div>
+		</a>
+		<div class="span3">	
+				<div class="content-inner">
+					<span class="numbers">3</span>
+					<p>[@s.text name="sibsp.application.thirdstep"/]</p>
+					<hr/>
+					<img src="${rootURL}/images/fields_ico.png"/>
 			</div>
 		</div>
-		
+		<div class="span3">  	
+				<div class="content-inner">
+					<span class="numbers">4</span>
+					<p>[@s.text name="sibsp.application.fourthstep"/]</p>
+					<hr/>
+					<div id="new-resource">
+					[#include "include/upload_new_template.ftl"/]
+					</div>
+			</div>
+		</div>
+		<a class="span3" href="http://www.sibcolombia.net/web/sib/herramienta-de-publicacion-de-conjuntos-de-datos" target="_blank"> 	
+				<div class="content-inner">
+					<span class="numbers">5</span>
+					<p>[@s.text name="sibsp.application.fifthstep"/]</p>
+					<hr/>
+					<img src="${rootURL}/images/ipt_ico.png"/>
+			</div>
+		</a>
 	</div>
 </div> <!-- /container -->
 [#include "/WEB-INF/pages/include/footer.ftl"]

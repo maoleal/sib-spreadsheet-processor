@@ -7,38 +7,112 @@
 }
 body {
 	background-color: white;
-	color: #333;
-	background-image: url(../images/leaves_top.jpg), url(../images/bg_azul_2.jpg), url(../images/bg_azul_2.jpg);
-	background-repeat: repeat-x, repeat-x, repeat;
-	background-position: center top, bottom left, left top;
+	color: #555;
+	background: #F2EFE7 url(../images/bg_new.jpg) repeat top center;
 	margin: 0;
 	/*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
 	font-family: "Open Sans",sans-serif;
 	font-size: 14px;
-	line-height: 20px;
+	line-height: 1em;
+    padding-top: 60px;
 }
-.navbar-inner {
-	background-color: white;
-	background-image: url(../images/leaves_top3.jpg), url(../images/bg_azul_2.jpg), url(../images/bg_azul_2.jpg);
-	background-repeat: repeat-x, repeat-x, repeat;
-	background-position: center top, bottom left, left top;
+p.intro{
+	margin: 0 auto 30px auto;
+	width: 800px;
+	text-align: center;
+	color: #888;
 }
-.navbar .brand {
-	padding: 5px 20px 5px;
+h1.intro{
+	text-align:center;
+}
+h1{ font-size: 1.5em; color: #3492C7; font-weight: 300;}
+
+.navbar-inner { background-color: transparent;}
+.navbar-inner:after{
+	content: " ";
+	display: block;
+	height: 20px;
+	width: 100%;
+	background: url("../images/shadow_top.png") no-repeat top center;
+	margin-top: 0;
+	background-size: 90% 10px;
+	position: relative;
+	z-index: 450;
+}
+.navbar-fixed-top{ height: 53px;}
+.navbar .brand {	
+	background: #fffef5;
+	-webkit-border-radius: 0 0 15px 15px;
+	border-radius: 0 0 15px 15px;
+	padding: 6px 13px 8px 13px;
+	-webkit-box-shadow: 0 0 7px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 0 7px 0 rgba(0,0,0,0.2);
+	display: inline-block;
+	position: absolute;
+	z-index: 500;
 }
 .navbar .brand img {
 	padding-right: 10px;
 }
+hr{ 
+	border:none 0px transparent;
+	height: 20px;
+	width: 100%;
+	background: url("../images/shadow_top.png") no-repeat top center;
+	background-size: 100% 10px; 
+	display: block;
+	margin: 10px 0;
+}
+#upload_do input[type="file"]{
+	padding: 5px;
+
+}
+a.span3{
+	display: inline-block;
+	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+	box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+}
+strong, b{font-weight: 700;}
+.span3{
+	overflow: hidden;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+}
+.span3 p{ line-height: 1.3em;}
+.span3 img{
+	display: block;
+	margin: 0 auto;
+	}
+a.span3:hover {
+	-webkit-box-shadow: 0 0 10px 3px rgba(0,0,0,0.20);
+	box-shadow: 0 0 10px 3px rgba(0,0,0,0.20);
+	text-decoration: none;
+	background-color: #2b7fbc;
+}
+.numbers {
+	color: white;
+	-webkit-border-radius: 35px;
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	width: 25px;
+	height: 25px;
+	padding: 12px;
+	background-color: #2b7fbc;
+	display:block;
+	margin: 0 auto;
+	font-size: 2em;
+	font-weight: 300;
+	text-align: center;
+	margin-bottom: 10px;
+	line-height: 22px;
+}
 .content {
 	margin-top: 15px;
 	margin-bottom: 15px;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	border: 1px solid rgba(0, 0, 0, 0.25);
-	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.15);
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
 	overflow: hidden;
 	width: 80% !important;
 }
@@ -52,7 +126,8 @@ body {
 	padding-bottom: 15px;
 	padding-left: 20px;
 	padding-right: 20px;
-	background: rgba(255, 255, 255, 0.4);
+	background: rgba(255, 255, 255, 0.6);
+	text-align: center;
 }
 .content-inner::before, .content-inner::after {
 	display: table;
@@ -83,10 +158,6 @@ body {
 	padding: 1px 5px;
 	margin-right: 5px;
 	margin-bottom: 2px;
-}
-hr {
-	margin: 5px 0;
-	border-top: 1px solid #4B4B4B;
 }
 
 .sibsp-sidenav > li > a:hover {
@@ -221,3 +292,52 @@ table.table-properties td.property {
 .qq-upload-button {
 	width: 170px !important;
 }
+footer{
+	font-size: 0.9em;
+	clear: both;
+	margin: 30px 0 0 0;
+	color: #515254!important;
+	background: rgba(255,255,255,0.6) url("../images/shadow_top.png") no-repeat top center;
+	line-height: 1.5em;
+	padding: 0 20px;
+}
+footer h5{
+	font-size: 1.03em;
+	padding: 0px;
+	margin: 0px;
+	font-weight: bold;
+}
+footer aside{
+	float: left;
+	background: rgba(255,255,255,0.6);
+	-webkit-border-radius: 15px;
+    border-radius: 15px;
+    padding: 7px;
+    -webkit-box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+     box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+footer section{ margin: 0 auto; max-width: 1200px; padding: 30px 0 !important; text-align: center;}
+footer section div{ display: inline-block; vertical-align: top;}
+footer section div:nth-child(3) div{ width: 24%;}
+footer section div:nth-child(3) div:nth-child(1){ width: 31%;}
+footer section div:nth-child(3) div:nth-child(3){ width: 19%;}
+footer section a{
+	color: #515254 !important;
+}
+footer section div a{ display: block; vertical-align: top} 
+footer section:nth-child(1){background: url("../images/shadow_bottom_clear.png") no-repeat bottom center; text-align: left;}
+footer section > div:nth-child(2) { width: 23%; padding: 0px 20px 0px 20px;}
+ footer .redes{ width: 23%; padding: 0 20px 0px 20px; margin: 20px 0 0 70px; }
+
+footer section > div:nth-child(3), footer nav{ width: 63%; padding: 0 20px 0px 20px !important; display: inline-block; border-left: 1px #cfcfcf solid;}
+ footer nav  { border:none; font-weight: bold; vertical-align: top; margin-top: 20px; padding: 0px; font-size: 1.1em;}
+  footer nav a { margin: 0 30px 0 3px;}
+ footer section:nth-child(2) span p{ display: block; font-weight: 700; font-size: 0.8em; margin-top: 12px;}
+ footer section:nth-child(2) span{ margin: 0 10px; position: relative; padding:  0 10px;}
+ footer section:nth-child(2) span:last-child{ margin-right: 0px; padding-right: 0px;}
+ footer section:nth-child(2) span:first-child{ margin-left: 0px; padding-left: 0px;}
+ footer section:nth-child(2) span:after{ content:" "; border-right: 1px #cfcfcf solid; position: absolute; top:20px; height: 30px; right: -10px; }
+  footer section:nth-child(2) span:last-child:after{ content: none; border-right: none; display: none;}
+  footer .redes a{ float: left; margin: 0 4px 0 0;}
+ footer section img{ margin: 0 3px; display: inline-block; vertical-align: top;}
+ footer section span { display: inline-block; text-align: center; vertical-align: top;}
