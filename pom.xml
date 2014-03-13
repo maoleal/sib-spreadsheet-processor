@@ -33,10 +33,10 @@
         <dwc-api.version>1.1-SNAPSHOT</dwc-api.version>
         <struts2.version>2.3.4.1</struts2.version>
         <log4j.version>1.2.17</log4j.version>
-        <poi.version>3.9</poi.version>
-        <poi-ooxml.version>3.9</poi-ooxml.version>
-        <poi-scratchpad.version>3.9</poi-scratchpad.version>
-        <poi-ooxml-schemas.version>1.1</poi-ooxml-schemas.version>
+        <poi.version>3.10-FINAL</poi.version>
+        <poi-ooxml.version>3.10-FINAL</poi-ooxml.version>
+        <poi-scratchpad.version>3.10-FINAL</poi-scratchpad.version>
+        <poi-ooxml-schemas.version>3.10-FINAL</poi-ooxml-schemas.version>
         <guice.version>3.0</guice.version>
         <servlet-api.version>2.5</servlet-api.version>
         <jsp-api.version>2.0</jsp-api.version>
@@ -258,7 +258,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
-			<artifactId>ooxml-schemas</artifactId>
+			<artifactId>poi-ooxml-schemas</artifactId>
 			<version>${poi-ooxml-schemas.version}</version>
 		</dependency>
 
