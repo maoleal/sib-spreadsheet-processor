@@ -125,7 +125,7 @@ public class Xls2Csv extends BaseManager {
 		} else {
 			while (rowIterator.hasNext()) {
 				row = rowIterator.next();
-				if (row.getRowNum() != 0 && row.getRowNum() != 1) {
+				if (row.getRowNum() != 0 && row.getRowNum() != 1 && !isRowEmpty(row)) {
 					for (int counter = 0; counter < totalColumns; counter++) {
 						if (!readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).isEmpty()) {
 							entries[counter] = readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK));
@@ -142,6 +142,14 @@ public class Xls2Csv extends BaseManager {
 		return file;
 	}
 
+	private boolean isRowEmpty(Row row) {
+		for (int c = row.getFirstCellNum(); c <= row.getLastCellNum(); c++) {
+			Cell cell = row.getCell(c);
+			if (cell != null && cell.getCellType() != Cell.CELL_TYPE_BLANK)
+				return false;
+		}
+		return true;
+	}
 
 	private int[] reviewSpreedsheet(Resource resource, File sourceFile, ActionLogger actionLogger) throws IOException, InvalidFormatException{
 		Workbook template = WorkbookFactory.create(sourceFile);
@@ -193,28 +201,30 @@ public class Xls2Csv extends BaseManager {
 
 		while(rowIterator.hasNext()){
 			row = rowIterator.next();
-			isFull=false;
-			if(position!=-1){ // Position of column dataGeneralization exist
-				if(!readCellValue(row.getCell(position, Row.CREATE_NULL_AS_BLANK)).isEmpty()){
-					isFull=true; // For this row the column dataGeneralization has data
+			if(!isRowEmpty(row)) {
+				isFull=false;
+				if(position!=-1){ // Position of column dataGeneralization exist
+					if(!readCellValue(row.getCell(position, Row.CREATE_NULL_AS_BLANK)).isEmpty()){
+						isFull=true; // For this row the column dataGeneralization has data
+					}
 				}
-			}
 
-			if(row.getRowNum() != 0 && row.getRowNum() != 1){ // Avoid checking first and second rows (template column names)
-				for(int counter = 0; counter < totalColumns; counter++){
-					if(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).trim().isEmpty()){ 
-						String colmN=readCellValue(rowZero.getCell(counter, Row.CREATE_NULL_AS_BLANK));
-						if(isFull){
-							if((colmN.equals("locality")||colmN.equals("decimalLatitude"))||(colmN.equals("decimalLongitude"))||(colmN.equals("geodeticDatum"))){
-								log.info("dataGeneralizations cell is filled"); 
+				if(row.getRowNum() != 0 && row.getRowNum() != 1){ // Avoid checking first and second rows (template column names)
+					for(int counter = 0; counter < totalColumns; counter++){
+						if(readCellValue(row.getCell(counter, Row.CREATE_NULL_AS_BLANK)).trim().isEmpty()){ 
+							String colmN=readCellValue(rowZero.getCell(counter, Row.CREATE_NULL_AS_BLANK));
+							if(isFull){
+								if((colmN.equals("locality")||colmN.equals("decimalLatitude"))||(colmN.equals("decimalLongitude"))||(colmN.equals("geodeticDatum"))){
+									log.info("dataGeneralizations cell is filled"); 
+								}else{
+									if(columnLocationRequiredElements.containsKey(counter)){
+										missEl[counter]++;
+									}
+								}
 							}else{
 								if(columnLocationRequiredElements.containsKey(counter)){
 									missEl[counter]++;
 								}
-							}
-						}else{
-							if(columnLocationRequiredElements.containsKey(counter)){
-								missEl[counter]++;
 							}
 						}
 					}
