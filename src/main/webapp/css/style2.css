@@ -341,3 +341,7 @@ footer section > div:nth-child(3), footer nav{ width: 63%; padding: 0 20px 0px 2
   footer .redes a{ float: left; margin: 0 4px 0 0;}
  footer section img{ margin: 0 3px; display: inline-block; vertical-align: top;}
  footer section span { display: inline-block; text-align: center; vertical-align: top;}
+.alert-error {
+	float: right;
+	width: 60%;
+}

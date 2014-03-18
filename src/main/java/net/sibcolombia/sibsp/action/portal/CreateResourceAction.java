@@ -68,7 +68,6 @@ public class CreateResourceAction extends ManagerBaseAction {
 	private List<String> fileContentTypes;
 	private List<String> fileFileNames;
 	private String shortname;
-	private String onlyFileName;
 	private String onlyFileExtension;
 	private final ExtensionManager extensionManager;
 	private ExtensionMapping mapping;
@@ -180,7 +179,6 @@ public class CreateResourceAction extends ManagerBaseAction {
 		int dotPosition = fileName.lastIndexOf('.');
 		if (dotPosition > 0 && dotPosition < fileName.length() - 1) {
 			onlyFileExtension = fileName.substring(dotPosition + 1).toLowerCase();
-			onlyFileName = fileName.substring(0, dotPosition).toLowerCase();
 		}
 	}
 
@@ -267,110 +265,102 @@ public class CreateResourceAction extends ManagerBaseAction {
 			if (tmpFiles != null) {
 				Source source = null;
 				Extension extension = new Extension();
-				if (existAttributesFile) {
-					log.info("Processing metadata and attributes files");
-					UUID uniqueID = UUID.randomUUID();
-					this.resource = resourceManager.processMetadataSpreadsheetPart("tempMetadata", actionLogger);
-					this.resource.setUniqueID(uniqueID);
-					if (tmpFiles.get("ExcelFileComplete") != null) {
-						log.info("Processing metadata and DarwinCore complete files");
-						dataFileElements = excelToCsvConverter.convertExcelCoreCompleteToCsv(resource, tmpFiles.get("AttributesDwCComplete").getFile(), actionLogger);
-						source = sourceManager.add(this.resource, dataFileElements, tmpFiles.get("AttributesDwCComplete").getFileName());
-						this.resource.addSource(source, true);
-						saveResource();
-						extension = extensionManager.get(Constants.DWC_ROWTYPE_OCCURRENCE);
-					} else {
-						throw new ImportException("The sib processor application found an invalid file error.");
-					}
-					if (extension != null) {
-						mapping = new ExtensionMapping();
-						mapping.setExtension(extension);
-					}
-					if (mapping != null || mapping.getExtension() != null) {
-						if (mapping.getSource() == null) {
-							mapping.setSource(source);
-						}
-						// set empty filter if not existing
-						if (mapping.getFilter() == null) {
-							mapping.setFilter(new RecordFilter());
-						}
-						// determine the core row type
-						String coreRowType = resource.getCoreRowType();
-						if (coreRowType == null) {
-							// not yet set, the current mapping must be the core type
-							coreRowType = mapping.getExtension().getRowType();
-						}
-						// setup the core record id term
-						String coreIdTerm = Constants.DWC_OCCURRENCE_ID;
-						if (coreRowType.equalsIgnoreCase(Constants.DWC_ROWTYPE_TAXON)) {
-							coreIdTerm = Constants.DWC_TAXON_ID;
-						}
-						coreid = extensionManager.get(coreRowType).getProperty(coreIdTerm);
-						mappingCoreid = mapping.getField(coreid.getQualname());
-						if (mappingCoreid == null) {
-							// no, create bare mapping field
-							mappingCoreid = new PropertyMapping();
-							mappingCoreid.setTerm(coreid);
-							mappingCoreid.setIndex(mapping.getIdColumn());
-						}
-
-						readSource();
-
-						// prepare all other fields
-						fields = new ArrayList<PropertyMapping>(mapping.getExtension()
-								.getProperties().size());
-						for (ExtensionProperty p : mapping.getExtension().getProperties()) {
-							// ignore core id term
-							if (p.equals(coreid)) {
-								continue;
-							}
-							// uses a vocabulary?
-							if (p.getVocabulary() != null) {
-								vocabTerms.put(p.getVocabulary().getUriString(), vocabulariesManager.getI18nVocab(p.getVocabulary().getUriString(), getLocaleLanguage(), true));
-							}
-							// mapped already?
-							PropertyMapping f = mapping.getField(p.getQualname());
-							if (f == null) {
-								// no, create bare mapping field
-								f = new PropertyMapping();
-							}
-							f.setTerm(p);
-							fields.add(f);
-						}
-
-						// finally do automap if no fields are found
-						if (mapping.getFields().isEmpty()) {
-							automap();
-						}
-
-						this.resource.addMapping(mapping);
-
-						saveMapping();
-
-						// remove all DwC mappings with 0 terms mapped
-						for (ExtensionMapping em : resource.getCoreMappings()) {
-							if (em.getFields().isEmpty()) {
-								resource.deleteMapping(em);
-							}
-						}
-					}
-					if (resourceManager.publish(this.resource, this)) {
-						addActionMessage(getText(
-								"sibsp.application.portal.overview.publishing.resource.version",
-								new String[] { Integer.toString(resource.getEmlVersion()) }));
-					}
-					// resourceManager.create(tmpFile, fileFileName, onlyFileName,
-					// onlyFileExtension, this);
-					log.info("File uploaded");
-					if (tmpFiles.get("AttributesCompleteList") != null) {
-						tmpFiles.get("AttributesCompleteList").getFile().delete();
-					} else if (tmpFiles.get("AttributesDwCComplete") != null) {
-						tmpFiles.get("AttributesDwCComplete").getFile().delete();
-					}
+				log.info("Processing attributes files");
+				UUID uniqueID = UUID.randomUUID();
+				this.resource = resourceManager.processMetadataSpreadsheetPart("tempMetadata", actionLogger);
+				this.resource.setUniqueID(uniqueID);
+				if (tmpFiles.get("ExcelFileComplete") != null) {
+					log.info("Processing darwinCore attribute files");
+					dataFileElements = excelToCsvConverter.convertExcelCoreCompleteToCsv(resource, tmpFiles.get("ExcelFileComplete").getFile(), actionLogger);
+					source = sourceManager.add(this.resource, dataFileElements, tmpFiles.get("ExcelFileComplete").getFileName());
+					this.resource.addSource(source, true);
+					saveResource();
+					extension = extensionManager.get(Constants.DWC_ROWTYPE_OCCURRENCE);
 				} else {
-					// addFieldError("file", "Debe subir la plantilla.");
-					addActionError("Debe subir la plantilla.");
-					return INPUT;
+					throw new ImportException("The sib processor application found an invalid file error.");
+				}
+				if (extension != null) {
+					mapping = new ExtensionMapping();
+					mapping.setExtension(extension);
+				}
+				if (mapping != null || mapping.getExtension() != null) {
+					if (mapping.getSource() == null) {
+						mapping.setSource(source);
+					}
+					// set empty filter if not existing
+					if (mapping.getFilter() == null) {
+						mapping.setFilter(new RecordFilter());
+					}
+					// determine the core row type
+					String coreRowType = resource.getCoreRowType();
+					if (coreRowType == null) {
+						// not yet set, the current mapping must be the core type
+						coreRowType = mapping.getExtension().getRowType();
+					}
+					// setup the core record id term
+					String coreIdTerm = Constants.DWC_OCCURRENCE_ID;
+					if (coreRowType.equalsIgnoreCase(Constants.DWC_ROWTYPE_TAXON)) {
+						coreIdTerm = Constants.DWC_TAXON_ID;
+					}
+					coreid = extensionManager.get(coreRowType).getProperty(coreIdTerm);
+					mappingCoreid = mapping.getField(coreid.getQualname());
+					if (mappingCoreid == null) {
+						// no, create bare mapping field
+						mappingCoreid = new PropertyMapping();
+						mappingCoreid.setTerm(coreid);
+						mappingCoreid.setIndex(mapping.getIdColumn());
+					}
+
+					readSource();
+
+					// prepare all other fields
+					fields = new ArrayList<PropertyMapping>(mapping.getExtension()
+							.getProperties().size());
+					for (ExtensionProperty p : mapping.getExtension().getProperties()) {
+						// ignore core id term
+						if (p.equals(coreid)) {
+							continue;
+						}
+						// uses a vocabulary?
+						if (p.getVocabulary() != null) {
+							vocabTerms.put(p.getVocabulary().getUriString(), vocabulariesManager.getI18nVocab(p.getVocabulary().getUriString(), getLocaleLanguage(), true));
+						}
+						// mapped already?
+						PropertyMapping f = mapping.getField(p.getQualname());
+						if (f == null) {
+							// no, create bare mapping field
+							f = new PropertyMapping();
+						}
+						f.setTerm(p);
+						fields.add(f);
+					}
+
+					// finally do automap if no fields are found
+					if (mapping.getFields().isEmpty()) {
+						automap();
+					}
+
+					this.resource.addMapping(mapping);
+
+					saveMapping();
+
+					// remove all DwC mappings with 0 terms mapped
+					for (ExtensionMapping em : resource.getCoreMappings()) {
+						if (em.getFields().isEmpty()) {
+							resource.deleteMapping(em);
+						}
+					}
+				}
+				if (resourceManager.publish(this.resource, this)) {
+					addActionMessage(getText(
+							"sibsp.application.portal.overview.publishing.resource.version",
+							new String[] { Integer.toString(resource.getEmlVersion()) }));
+				}
+				// resourceManager.create(tmpFile, fileFileName, onlyFileName,
+				// onlyFileExtension, this);
+				log.info("File uploaded");
+				if (tmpFiles.get("ExcelFileComplete") != null) {
+					tmpFiles.get("ExcelFileComplete").getFile().delete();
 				}
 			} else {
 				// addFieldError("file", "Debe subir la plantilla.");
@@ -552,39 +542,6 @@ public class CreateResourceAction extends ManagerBaseAction {
 			} else {
 				return false;
 			}
-		}
-	}
-
-	/**
-	 * Check if the source file is a valid spreadsheet template file name
-	 * 
-	 * @return
-	 */
-	private boolean validFileNameEnforce() {
-		if (onlyFileName == null) {
-			return false;
-		} else {
-			if (onlyFileName
-					.equalsIgnoreCase("Plantilla_de_Registros_Biologicos_CPSiB")) {
-				this.existAttributesFile = true;
-				return true;
-			} else {
-				return false;
-			}
-		}
-	}
-
-	/**
-	 * Check if the source file is a valid spreadsheet template file name
-	 * 
-	 * @return
-	 */
-	private boolean validFileName() {
-		if (onlyFileName == null) {
-			return false;
-		} else {
-			this.existAttributesFile = true;
-			return true;
 		}
 	}
 

@@ -5,7 +5,7 @@
 	<div class="row">
 		<h1 class="intro">[@s.text name="sibsp.application.title.welcome"/]</h1>
 		<p class="intro">El validador de Darwin Core archive para archivos de excel es una herramienta web que transforma archivos de MS Excel preconfigurados por el SiB Colombia en archivos de Darwin Core de GBIF. Desntro de un archivo Darwin Core existen dos archivos: una hoja de cálculo contiene el perfil de metadatos y un segundo archivo contiene los datos.</p>
-
+			
 		<a class="span3" href="${rootURL}/instructive/Instructivo_Plantilla_Reporte_al_SiB.pdf">
 				<div class="content-inner">
 					<span class="numbers">1</span>
@@ -15,19 +15,18 @@
 					<strong>DESCARGAR<br/>INSTRUCTIVO</strong>
 			</div>
 		</a>
-			[#if fieldErrors?exists]
-				[#assign num=fieldErrors.values()?size]
-				[#if num != 0]
-					<div class="alert alert-error">	
-						<p>[@s.text name="sibsp.application.error.</p>missing"/]
-						[#list fieldErrors.values() as item]
+		
+		[#if fieldErrors?exists]
+			[#assign num=fieldErrors.values()?size]
+			[#if num != 0]
+				<div class="alert alert-error">
+					<p>[@s.text name="sibsp.application.error"/]</p>
+					[#list fieldErrors.values() as item]
 						<li><span>${item[0]}</span></li>
-						[/#list]
-						
-					</div>
-				[/#if]
+					[/#list]
+				</div>
 			[/#if]
-
+		[/#if]
 		
 		<a class="span3" href="${rootURL}/templates/Plantilla_de_Registros_Biologicos_CPSiB.xlsx">
 				<div class="content-inner">
