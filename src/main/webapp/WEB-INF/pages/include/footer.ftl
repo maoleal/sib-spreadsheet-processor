@@ -80,7 +80,7 @@
 			var manualuploader = new qq.FineUploader({
 				element: $('#manual-fine-uploader')[0],
 				request: {
-					endpoint: '/sib-spreadsheet-processor/upload.do'
+					endpoint: '/procesador-cp-sib/upload.do'
 				},
 				autoUpload: false,
 				

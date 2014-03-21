@@ -143,7 +143,11 @@ public class Xls2Csv extends BaseManager {
 	}
 
 	private boolean isRowEmpty(Row row) {
+		if(row.getLastCellNum() < 0 || row.getFirstCellNum() < 0) {
+			return false;
+		}
 		for (int c = row.getFirstCellNum(); c <= row.getLastCellNum(); c++) {
+			log.info("A Cell value: "+row.getCell(c));
 			Cell cell = row.getCell(c);
 			if (cell != null && cell.getCellType() != Cell.CELL_TYPE_BLANK)
 				return false;

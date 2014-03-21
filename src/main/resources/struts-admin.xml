@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <package name="admin" extends="sib-spreadsheet-processor-default" namespace="/administration">
+    <package name="admin" extends="procesador-cp-sib-default" namespace="/administration">
         <default-interceptor-ref name="adminStack"/>
         <default-action-ref name="home"/>
     

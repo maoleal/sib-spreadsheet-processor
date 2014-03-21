@@ -40,7 +40,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/sib-spreadsheet-processor"><img src="${rootURL}/images/logo_sib_portal.png" alt="SIB Colombia"></a>
+          <a class="brand" href="/procesador-cp-sib"><img src="${rootURL}/images/logo_sib_portal.png" alt="SIB Colombia"></a>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
               <li class="active"><a href="${rootURL}">[@s.text name="sibsp.application.home"/]</a></li>

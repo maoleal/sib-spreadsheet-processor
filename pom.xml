@@ -6,13 +6,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.sibcolombia.spreadsheet-processor</groupId>
-    <artifactId>sib-spreadsheet-processor</artifactId>
+    <artifactId>procesador-cp-sib</artifactId>
 
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>sib-spreadsheet-processor</name>
-    <url>http://www.sibcolombia.net/tools/sib-spreadsheet-processor</url>
+    <name>procesador-cp-sib</name>
+    <url>http://tools.sibcolombia.net/procesador-cp-sib</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -76,7 +76,7 @@
 	</repositories>
 
     <build>
-        <finalName>sib-spreadsheet-processor</finalName>
+        <finalName>procesador-cp-sib</finalName>
         
         <plugins>
             <plugin>
