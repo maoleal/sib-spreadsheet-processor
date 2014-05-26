@@ -202,7 +202,8 @@ public class Xls2Csv extends BaseManager {
 				position=k; // Column position of dataGeneralization (conditional column)
 			}
 		}
-
+		
+		
 		while(rowIterator.hasNext()){
 			row = rowIterator.next();
 			if(!isRowEmpty(row)) {

@@ -3,10 +3,10 @@
 <div class="container">
 
 	<div class="row">
-		<h1 class="intro">[@s.text name="sibsp.application.title.welcome"/]</h1>
-		<p class="intro">El validador de <em>Darwin Core Archive</em> es una herramienta web que transforma archivos de Excel preconfigurados por el SiB Colombia en archivos de <em>Darwin Core</em> de GBIF. Dentro de un archivo <em>Darwin</em> Core existen dos archivos: una hoja de cálculo que contiene el perfil de metadatos y un segundo archivo que contiene los datos.</p>
+		<!--<h1 class="intro">[@s.text name="sibsp.application.title.welcome"/]</h1>
+		<p class="intro">El validador de <em>Darwin Core Archive</em> es una herramienta web que transforma archivos de Excel preconfigurados por el SiB Colombia en archivos de <em>Darwin Core</em> de GBIF. Dentro de un archivo <em>Darwin</em> Core existen dos archivos: una hoja de cálculo que contiene el perfil de metadatos y un segundo archivo que contiene los datos.</p>-->
 			
-		<a class="span3" target="_blank" href="https://s3.amazonaws.com/IPT/procesador/INSTRUCTIVO+PLANTILLA+DE+REGISTRSO+BIOLOGICOS+CP-SIB_11-03-2014.pdf">
+		<!--<a class="span3" target="_blank" href="https://s3.amazonaws.com/IPT/procesador/INSTRUCTIVO+PLANTILLA+DE+REGISTRSO+BIOLOGICOS+CP-SIB_11-03-2014.pdf">
 				<div class="content-inner">
 					<span class="numbers">1</span>
 						<p>[@s.text name="sibsp.application.firststep"/]</p>
@@ -14,7 +14,7 @@
 					<img src="${rootURL}/images/pdf_ico.png"/>
 					<strong>DESCARGAR<br/>INSTRUCTIVO</strong>
 			</div>
-		</a>
+		</a>-->
 		
 		[#if fieldErrors?exists]
 			[#assign num=fieldErrors.values()?size]
@@ -28,7 +28,7 @@
 			[/#if]
 		[/#if]
 		
-		<a class="span3" href="https://s3.amazonaws.com/IPT/procesador/plantilla_registros_CP_SiB.xlsx">
+		<!--<a class="span3" href="https://s3.amazonaws.com/IPT/procesador/plantilla_registros_CP_SiB.xlsx">
 				<div class="content-inner">
 					<span class="numbers">2</span>
 					<p>[@s.text name="sibsp.application.secondstep"/]</p>
@@ -45,10 +45,10 @@
 					<hr/>
 					<img src="${rootURL}/images/fields_ico.png"/>
 			</div>
-		</div>
+		</div>-->
 		<div class="span3">  	
 				<div class="content-inner">
-					<span class="numbers">4</span>
+					<!--<span class="numbers">4</span>-->
 					<p>[@s.text name="sibsp.application.fourthstep"/]</p>
 					<hr/>
 					<div id="new-resource">
@@ -56,6 +56,7 @@
 					</div>
 			</div>
 		</div>
+		<!--
 		<a class="span3" href="http://www.sibcolombia.net/web/sib/herramienta-de-publicacion-de-conjuntos-de-datos" target="_blank"> 	
 				<div class="content-inner">
 					<span class="numbers">5</span>
@@ -64,6 +65,7 @@
 					<img src="${rootURL}/images/ipt_ico.png"/>
 			</div>
 		</a>
+		-->
 	</div>
 </div> <!-- /container -->
 [#include "/WEB-INF/pages/include/footer.ftl"]
