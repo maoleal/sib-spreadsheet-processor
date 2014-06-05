@@ -3,8 +3,8 @@
 <div class="container">
 
 	<div class="row">
-		<!--<h1 class="intro">[@s.text name="sibsp.application.title.welcome"/]</h1>
-		<p class="intro">El validador de <em>Darwin Core Archive</em> es una herramienta web que transforma archivos de Excel preconfigurados por el SiB Colombia en archivos de <em>Darwin Core</em> de GBIF. Dentro de un archivo <em>Darwin</em> Core existen dos archivos: una hoja de cálculo que contiene el perfil de metadatos y un segundo archivo que contiene los datos.</p>-->
+		<h1 class="intro">[@s.text name="sibsp.application.title.welcome"/]</h1>
+		<p class="intro">El procesador es una herramienta que transforma la plantilla de Excel preconfigurada por el SiB Colombia, en un archivo Darwin Core (formato .zip). El archivo se utilizará en el siguiente paso.</p>
 			
 		<!--<a class="span3" target="_blank" href="https://s3.amazonaws.com/IPT/procesador/INSTRUCTIVO+PLANTILLA+DE+REGISTRSO+BIOLOGICOS+CP-SIB_11-03-2014.pdf">
 				<div class="content-inner">
