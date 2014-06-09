@@ -3,16 +3,16 @@
 <div class="container">
 	<div class="row">
 	
-		<div class="span12">
+		<div class="span7">
 			<div class="content content-full-witdh">    	
 				<div class="content-inner">
-    				<h2>[@s.text name="sibsp.application.results.title"/]</h2>
+    				<h1>[@s.text name="sibsp.application.results.title"/]</h1>
 					<h4>[@s.text name="sibsp.application.results.textoagradecimiento"/]</h3>
 		
 					<p>[@s.text name="sibsp.application.results.overview"/]</p>
 
 					<hr/>
-					<h3>[@s.text name="sibsp.application.results.availablefiles"/]</h3>
+					<h4>[@s.text name="sibsp.application.results.availablefiles"/]</h4>
 					[#if resource.lastPublished??]
 					<dl class="dl-horizontal">
 						<dt>[@s.text name="sibsp.portal.overview.published.processingdate"/]</dt>

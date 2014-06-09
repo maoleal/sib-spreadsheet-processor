@@ -10,22 +10,32 @@ body {
 	color: #555;
 	background: #F2EFE7 url(../images/bg_new.jpg) repeat top center;
 	margin: 0;
-	/*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
 	font-family: "Open Sans",sans-serif;
 	font-size: 14px;
-	line-height: 1em;
+	line-height: 1.1em;
     padding-top: 60px;
 }
-p.intro{
-	margin: 0 auto 30px auto;
-	width: 800px;
-	text-align: center;
+.container{background: #F2EFE7 url(../images/bg_new.jpg) repeat top center; height: 53;}
+.intro{-webkit-border-radius: 25px; border-radius: 25px;}
+.intro p{
+	margin: 20px auto 30px 30px !important;
 	color: #888;
+	display:inline-block;
+	vertical-align:top;
+	width:60%;
+	text-align:left;
 }
-h1.intro{
+.row { max-width: 940px; margin: 0 auto !important;}
+h1{
 	text-align:center;
+	font-size: 1.7em !important;
+	margin: 10px 0 30px 0 ;
 }
 h1{ font-size: 1.5em; color: #3492C7; font-weight: 300;}
+.blue{ background-color: rgba(17,138,203,0.6) !important; color: white !important;}
+.blue form{ margin: 0 0 10px 0 !important;}
+
+.round{-webkit-border-radius: 25px; border-radius: 25px;}
 
 .navbar-inner { background-color: transparent;}
 .navbar-inner:after{
@@ -61,7 +71,7 @@ hr{
 	background: url("../images/shadow_top.png") no-repeat top center;
 	background-size: 100% 10px; 
 	display: block;
-	margin: 10px 0;
+	margin: 10px 0 5px 0 ;
 }
 #upload_do input[type="file"]{
 	padding: 5px;
@@ -129,6 +139,11 @@ a.span3:hover {
 	background: rgba(255, 255, 255, 0.6);
 	text-align: center;
 }
+.span7 {float: none !important; display: block; margin: 0 auto;}
+.content-inner p{
+	line-height: 1.3em;
+	margin: 10px 0 20px 0;
+	}
 .content-inner::before, .content-inner::after {
 	display: table;
 	content: "";
@@ -342,6 +357,7 @@ footer section > div:nth-child(3), footer nav{ width: 63%; padding: 0 20px 0px 2
  footer section img{ margin: 0 3px; display: inline-block; vertical-align: top;}
  footer section span { display: inline-block; text-align: center; vertical-align: top;}
 .alert-error {
-	float: right;
-	width: 60%;
+	list-style: none;
+	width: 65%;
+	margin: 0 auto;
 }
