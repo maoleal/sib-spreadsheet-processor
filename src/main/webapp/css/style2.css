@@ -32,6 +32,7 @@ h1{
 	margin: 10px 0 30px 0 ;
 }
 h1{ font-size: 1.5em; color: #3492C7; font-weight: 300;}
+h4{ font-size: 21px; font-weight: 300;}
 .blue{ background-color: rgba(17,138,203,0.6) !important; color: white !important;}
 .blue form{ margin: 0 0 10px 0 !important;}
 
@@ -308,11 +309,10 @@ table.table-properties td.property {
 	width: 170px !important;
 }
 footer{
-	font-size: 0.9em;
+	font-size: 0.75em;
 	clear: both;
 	margin: 30px 0 0 0;
 	color: #515254!important;
-	background: rgba(255,255,255,0.6) url("../images/shadow_top.png") no-repeat top center;
 	line-height: 1.5em;
 	padding: 0 20px;
 }
@@ -324,14 +324,8 @@ footer h5{
 }
 footer aside{
 	float: left;
-	background: rgba(255,255,255,0.6);
-	-webkit-border-radius: 15px;
-    border-radius: 15px;
-    padding: 7px;
-    -webkit-box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.2);
-     box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.2);
 }
-footer section{ margin: 0 auto; max-width: 1200px; padding: 30px 0 !important; text-align: center;}
+footer section{ margin: 0 auto; max-width: 445px; padding: 30px 0 !important; text-align: center;}
 footer section div{ display: inline-block; vertical-align: top;}
 footer section div:nth-child(3) div{ width: 24%;}
 footer section div:nth-child(3) div:nth-child(1){ width: 31%;}
@@ -340,8 +334,8 @@ footer section a{
 	color: #515254 !important;
 }
 footer section div a{ display: block; vertical-align: top} 
-footer section:nth-child(1){background: url("../images/shadow_bottom_clear.png") no-repeat bottom center; text-align: left;}
-footer section > div:nth-child(2) { width: 23%; padding: 0px 20px 0px 20px;}
+footer{background: url("../images/shadow_top.png") no-repeat top center; text-align: left;}
+footer section > div:nth-child(2) { padding: 0px 20px 0px 20px; color: #888888;}
  footer .redes{ width: 23%; padding: 0 20px 0px 20px; margin: 20px 0 0 70px; }
 
 footer section > div:nth-child(3), footer nav{ width: 63%; padding: 0 20px 0px 20px !important; display: inline-block; border-left: 1px #cfcfcf solid;}

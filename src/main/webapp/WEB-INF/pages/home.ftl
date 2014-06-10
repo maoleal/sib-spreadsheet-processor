@@ -10,7 +10,7 @@
 		</div>
 		<div class="span4" style="margin-left:40px !important;">  
 				<div class="content-inner blue round">
-					<p>[@s.text name="sibsp.application.fourthstep"/]</p>
+					[@s.text name="sibsp.application.fourthstep"/]
 					<hr/>
 					<div id="new-resource">
 					[#include "include/upload_new_template.ftl"/]

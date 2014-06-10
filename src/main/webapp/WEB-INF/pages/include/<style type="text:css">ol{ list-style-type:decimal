@@ -1,0 +1,97 @@
+<style type="text/css">ol{ list-style-type:decimal !important;} .cp-sib{height:900px !important;} .cp-sib .front p{ text-align:left;} }</style> <script src="/SIB-theme/javascript/jquery.colorbox-min.js"></script>
+
+<div style="text-align:center !important"><img src="/SIB-theme/images/cp-sib/LOGO-CR-SIB.png" alt="" />
+
+<link href="/SIB-theme/css/colorbox.css" rel="stylesheet" type="text/css" /> <script type="text/javascript"> jQuery(document).ready(function() { jQuery(".inline").colorbox({inline:true, scrolling:true, width:"60%", opacity:0.7}); }); </script>
+
+<div class="cp-sib"><blockquote class="inset" style="font-size: 0.8em; text-align: justify;">A continuación encontrará las <strong>instrucciones</strong> y <strong>herramientas</strong> necesarias para generar el <strong>certificado de reporte a través del SiB Colombia</strong>, de acuerdo con las obligaciones establecidas en los&nbsp;<a href="http://wsp.presidencia.gov.co/Normativa/Decretos/2013/Documents/JUNIO/27/DECRETO%201376%20DEL%2027%20DE%20JUNIO%20DE%202013.pdf" target="_blank"><strong>Decretos 1376</strong></a><strong> </strong>y<strong> </strong><a href="http://wsp.presidencia.gov.co/Normativa/Decretos/2013/Documents/DICIEMBRE/27/DECRETO%203016%20DEL%2027%20DE%20DICIEMBRE%20DE%202013.pdf" target="_blank"><strong>3016 de 2013</strong></a>.<br />
+<br />
+Los <strong>titulares de los permisos de recolección de especímenes silvestres</strong> de la diversidad biológica, <strong>son los responsables de generar y presentar el</strong> <strong>certificado </strong>(CR-SiB) ante las autoridades ambientales. </blockquote> <span style="margin:0 auto; width:560px; display:block;"><!--iframe width="560" height="315" src="//www.youtube.com/embed/Auruw8-W2hs" frameborder="0" allowfullscreen=""></iframe--></span>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="bg">
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+</div>
+
+<div class="front"><a class="inline cboxElement" href="#paso1"> <img src="/SIB-theme/images/cp-sib/key_ico.png" alt="" />
+<h1>1</h1>
+<p>Solicite credenciales</p>
+</a> <a class="inline cboxElement" href="#paso2"> <img src="/SIB-theme/images/cp-sib/xls_ico.png" alt="" />
+<h1>2</h1>
+<p>Descargue la plantilla de registros biológicos y el instructivo</p>
+</a> <a class="inline cboxElement" href="#paso3"> <img src="/SIB-theme/images/cp-sib/abc_ico.png" alt="" />
+<h1>3</h1>
+<p>Genere el archivo Darwin Core (formato .zip) en el procesador</p>
+</a> <a class="inline cboxElement" href="#paso4"> <img src="/SIB-theme/images/cp-sib/doc_sib_ico.png" alt="" />
+<h1>4</h1>
+<p>Cargue el Archivo Darwin Core (formato .zip) y documente los metadatos</p>
+</a> <a class="inline cboxElement" href="#paso5"> <img src="/SIB-theme/images/cp-sib/medal_ico.png" alt="" />
+<h1>5</h1>
+<p>Reporte y genere el certificado CR-SiB</p>
+</a> <a class="inline cboxElement" href="#paso6"> <img src="/SIB-theme/images/cp-sib/bulb_ico.png" alt="" />
+<h1>6</h1>
+<p>Consulte la información reportada y los certificados CR-SiB</p>
+</a></div>
+</div>
+<blockquote class="inset"><img src="/SIB-theme/images/cp-sib/warn_ico.png" style="float:left; margin:5px 15px 25px -5px; width:30px; height:30px" alt="" /> El publicador de la información es responsable por la calidad y veracidad de la información reportada ante el SiB Colombia, y la autoridad ambiental competente podrá evaluar la idoneidad de la información documentada en cualquier momento. El SiB Colombia no se hace responsable por la información publicada y reportada en el CR-SiB.</blockquote>
+<div class="pasos" style="display:none">
+<div id="paso1"><img src="/SIB-theme/images/cp-sib/key_ico.png" alt="" />
+<h1>1</h1>
+<h3>Solicite credenciales</h3>
+<p>Diligencie el formulario registro. Siga las instrucciones y tenga presente que las credenciales (usuario y contraseña) para generar el certificado, llegarán al correo electrónico registrado en el formulario, en un plazo máximo de 5 días hábiles.</p>
+<p><a href="http://www.sibcolombia.net/web/sib/solicitud-de-credenciales-cr-sib" target="_blank">Ir al formulario registro</a></p>
+</div>
+<div id="paso2"><img src="/SIB-theme/images/cp-sib/xls_ico.png" alt="" />
+<h1>2</h1>
+<h3>Descargue la plantilla de registros biológicos y el instructivo</h3>
+<p>Registre en la plantilla la información asociada a los especímenes colectados, por cada uno de los proyectos que abarque el permiso de recolección. No se debe separar por grupo biológico u otra clasificación, diligencie una sola plantilla por proyecto. Si el permiso ampara más de un proyecto, es necesario realizar una plantilla por cada uno.</p>
+<p>No cambie el nombre de la plantilla, es necesario mantenerlo para el siguiente paso.</p>
+
+<p><a href="/SIB-theme/pdf/cr-sib/Plantilla_de_registros_biologicos_CR-SiB.xlsx" target="_blank">Descargue la plantilla aquí</a><br />
+<a href="/SIB-theme/pdf/cr-sib/Datos_CR-SiB.pdf" target="_blank">Descargue el instructivo de datos</a></p>
+</div>
+<div id="paso3"><img src="/SIB-theme/images/cp-sib/abc_ico.png" alt="" />
+<h1>3</h1>
+<h3>Genere el archivo Darwin Core (formato .zip) en el procesador</h3>
+<p>Una vez la plantilla esté diligenciada, cárguela en el <a href="http://ec2-54-186-16-189.us-west-2.compute.amazonaws.com:8080/sib-spreadsheet-processor/" target="_blank">procesador de plantillas</a>. Este verificará que los campos obligatorios se encuentren diligenciados; si faltan datos la aplicación le informará cuáles y cuántos están sin diligenciar. Haga los ajustes necesarios en su plantilla y cárguela nuevamente.</p>
+<p>Si la plantilla está correctamente diligenciada, el procesador generará un archivo Darwin Core (formato .zip). Descárguelo y no lo modifique.</p>
+<p>&nbsp;</p>
+ <a href="http://ec2-54-186-16-189.us-west-2.compute.amazonaws.com:8080/sib-spreadsheet-processor/" target="_blank">Ir al procesador de plantillas</a>
+</div>
+
+<div id="paso4"><img src="/SIB-theme/images/cp-sib/doc_sib_ico.png" alt="" />
+<h1>4</h1>
+<h3>Cargue el Archivo Darwin Core (formato .zip) y documente los metadatos</h3>
+<ol>
+    <li>Con las credenciales asignadas en el paso número uno ingrese a la plataforma</li>
+    <li>Haga clic en Gestión de recursos</li>
+    <li>Asigne un nombre corto siguiendo el formato:<br />
+    <span style="padding-left:20px;">
+    <p>2483_amazonas_20140803</p>
+    <p>Número del permiso_palabra clave del proyecto_fecha de reporte (AAAAMMDD)</p>
+    </span></li>
+    <li>Cargue el archivo Archivo Darwin Core (formato .zip)</li>
+</ol>
+<p>En la vista general del recurso documente la información que describe sus datos (metadatos), haciendo clic en el botón editar.</p>
+<p><strong>Nota: un recurso es el conjunto de datos (registros biológicos reportados en la plantilla) y metadatos.</strong></p>
+<p><a href="/SIB-theme/pdf/cr-sib/Metadatos_CR-SiB.pdf" target="_blank">Descargue el instructivo de metadatos</a><br />
+Ir a la plataforma</p>
+</div>
+<div id="paso5"><img src="/SIB-theme/images/cp-sib/medal_ico.png" alt="" />
+<h1>5</h1>
+<h3>Reporte y genere el certificado CR-SiB</h3>
+<p>Haga clic en <strong>vista general del recurso</strong> y oprima el botón <em>reportar</em>. La plataforma le indicará que el reporte fue generado exitosamente. Diríjase nuevamente a la <strong>vista general del recurso</strong> en donde encontrará la opción para descargar el certificado CR-SiB.</p>
+</div>
+<div id="paso6"><img src="/SIB-theme/images/cp-sib/bulb_ico.png" alt="" />
+<h1>6</h1>
+<h3>Consulte la información reportada y los certificados CR-SiB</h3>
+<p>La información reportada en cada proyecto es pública y se puede consultar junto con los certificados.</p>
+<p>Utilice los filtros de cada columna para encontrar la información que desea consultar. Para obtener información detallada de los recursos, oprima sobre el nombre. Allí podrá descargar el conjunto registros biológicos reportados y el correspondiente certificado.</p>
+<p>Colocar pantallazo y/o video...</p>
+<p>Ir a la plataforma</p>
+</div>
+</a></div>
+<p>&nbsp;</p>
+</div>
