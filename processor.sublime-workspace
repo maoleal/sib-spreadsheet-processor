@@ -1,0 +1,1345 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"tex",
+				"text-transform"
+			],
+			[
+				"ba",
+				"background-size"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"m",
+				"margin-right"
+			],
+			[
+				"te",
+				"text-transform"
+			],
+			[
+				"fo",
+				"font-weight"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"rgb",
+				"rgb()"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"dire",
+				"Directivo"
+			],
+			[
+				"pad",
+				"padding-right"
+			],
+			[
+				"borde",
+				"border-radius"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"b",
+				"border-image"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"import",
+				"important"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"bor",
+				"border-right"
+			],
+			[
+				"im",
+				"important"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/main/webapp/WEB-INF/pages/home.ftl",
+			"settings":
+			{
+				"buffer_size": 2430,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/webapp/WEB-INF/pages/include/header.ftl",
+			"settings":
+			{
+				"buffer_size": 3017,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/webapp/css/style2.css",
+			"settings":
+			{
+				"buffer_size": 8487,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/webapp/css/bootstrap.css",
+			"settings":
+			{
+				"buffer_size": 114789,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/resources/ApplicationResources_en.properties",
+			"settings":
+			{
+				"buffer_size": 14931,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/webapp/css/bootstrap-responsive.css",
+			"settings":
+			{
+				"buffer_size": 20999,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/webapp/WEB-INF/pages/include/upload_new_template.ftl",
+			"settings":
+			{
+				"buffer_size": 457,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pacga",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/disenho/Documents/SiB/web design/cifras_html/cifras_html_live.html",
+		"/Users/disenho/Documents/SiB/web design/CP-sib/formulario_registro_cr-sib.html",
+		"/Users/disenho/Documents/SiB/sib-spreadsheet-processor/src/main/resources/configurationFiles/sibsp.properties",
+		"/Users/disenho/Documents/SiB/sib-spreadsheet-processor/src/main/resources/application.properties",
+		"/Users/disenho/Documents/SiB/sib-spreadsheet-processor/src/main/webapp/WEB-INF/pages/include/footer.ftl",
+		"/Users/disenho/Downloads/Base de Datos Live in Center Bogotá - Organizadores.csv",
+		"/Users/disenho/Downloads/Base de Datos Live in Center Bogotá - Habituales.csv",
+		"/Users/disenho/Downloads/Base de Datos Live in Center Bogotá - Interesados (1).csv",
+		"/Users/disenho/Documents/SiB/sib-spreadsheet-processor/src/main/resources/ApplicationResources.properties",
+		"/Users/disenho/Documents/SiB/sib-spreadsheet-processor/src/main/resources/ApplicationResources_en.properties",
+		"/Users/disenho/Documents/SiB/sib-spreadsheet-processor/src/main/resources/ApplicationResources_es.properties",
+		"/Users/disenho/Documents/SiB/eclipse/colecta-ipt-2.0.5/src/main/webapp/WEB-INF/pages/portal/resource.ftl",
+		"/Users/disenho/Documents/SiB/eclipse/colecta-ipt-2.0.5/src/main/webapp/WEB-INF/pages/manage/create_input.ftl",
+		"/Users/disenho/Documents/SiB/eclipse/colecta-ipt-2.0.5/src/main/webapp/WEB-INF/pages/manage/inc/create_new_resource.ftl",
+		"/Users/disenho/Documents/SiB/eclipse/colecta-ipt-2.0.5/src/main/webapp/WEB-INF/pages/manage/home.ftl",
+		"/Users/disenho/Documents/SiB/eclipse/colecta-ipt-2.0.5/src/main/webapp/WEB-INF/pages/macros/resourcesTable.ftl",
+		"/Users/disenho/Documents/SiB/eclipse/colecta-ipt-2.0.5/src/main/webapp/WEB-INF/pages/manage/mapping.ftl",
+		"/Users/disenho/Documents/SiB/eclipse/sib-ipt-2.0.5-security-update-1/src/main/webapp/js/jquery/jquery.dataTables.js",
+		"/Users/disenho/Documents/SiB/eclipse/colecta-ipt-2.0.5/src/main/webapp/js/jquery/jquery.dataTables.js",
+		"/Users/disenho/Documents/SiB/eclipse/colecta-ipt-2.0.5/src/main/resources/ApplicationResources_es.properties",
+		"/Users/disenho/Documents/SiB/eclipse/colecta-ipt-2.0.5/src/main/webapp/WEB-INF/pages/inc/menu.ftl",
+		"/Users/disenho/Documents/SiB/eclipse/colecta-ipt-2.0.5/src/main/resources/ApplicationResources_es.native",
+		"/Users/disenho/Documents/SiB/web design/CP-sib/www/colorbox.css",
+		"/Users/disenho/Documents/SiB/web design/CP-sib/www/colorbox-master/example1/index.html",
+		"/Users/disenho/Documents/SiB/web design/CP-sib/www/Colorbox Examples.html",
+		"/Users/disenho/Documents/SiB/web design/CP-sib/www/untitled.html",
+		"/Users/disenho/Documents/SiB/web design/CP-sib/www/chart.html",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/layouts/mainLayout.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/classes/messages.properties",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/layouts/wizardSearchLayout.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/occurrence/headcontent.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/department/browse.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/common/footer.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/common/frontPageFooter.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/taxonomy/smallBrowse.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/panes.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/layouts/frontPageMainLayout.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/dataset/browse.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/occurrence/drilldown/occurrenceSubtitle.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/occurrence/drilldown/occurrenceHeader.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/geography/browse.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/publisher/browse.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/occurrence/drilldown/taxonomy.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/common/scripts.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/frontPageHeader.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/headcontent.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/publisherSpecial.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/occurrence/ajax/occurrences.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/dataset/headcontent.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/classes/theme-standard.properties",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/publisher/headcontent.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/speciesGlobal.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/datasetsSpecial.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/dataset/introduction.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/publisher/introduction.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/taxonomy/drilldown/names.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/shared/autocomplete.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/feedback/input.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/taxonomy/quickTaxonSearch.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/taxonomy/ajaxBrowse.jsp",
+		"/Users/disenho/Documents/SiB/_resources/tutoriales/colorbox-master/example1/index.html",
+		"/Users/disenho/Documents/SiB/_resources/tutoriales/colorbox-master/example1/colorbox.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/shared/filters.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/speciesSpecial.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/shared/tables.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/searchSpecial.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/classes/messages_es.properties",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/dataset/drilldown/provider/logTableSubtitle.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/panes.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/shared/tree.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/countriesSpecial.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/occurrenceSpecial.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/registrationSpecial.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/settingsSpecial.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/tutorialSpecial.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/occurrence/sampleResults.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/javascript/datatable.js",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/layouts/adminLayout.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/occurrence/drilldown/view.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/geography/introduction.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/menu/mainMenu.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/menu/frontPageTopMenu.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/menu/topMenu.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/menu/blanketSearch.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/blanketSearch.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/publisher/ajax/names.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/classes/theme-800x600.properties",
+		"/Users/disenho/Documents/SiB/video/4.coordenadas/cuepoints_video_password.xml",
+		"/Users/disenho/Documents/SiB/video/coordenadas/cuepoints_video_password.xml",
+		"/Users/disenho/Documents/SiB/video/cambio contraseña/tercervideo/cuepoints_video_password.xml",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/403.jsp",
+		"/Users/disenho/Documents/dataportal_junio19/WEB-INF/classes/messages_es.properties",
+		"/Users/disenho/Documents/SiB/dataportal-explorer/controllers/main/views/filterWindow.jade",
+		"/Users/disenho/Documents/SiB/dataportal-explorer/public/stylesheets/leaflet/leaflet.ie.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/.gitignore",
+		"/Users/disenho/Documents/SiB/dataportal-explorer/public/stylesheets/style.styl",
+		"/Users/disenho/Documents/SiB/dataportal-explorer/layouts/layout.jade",
+		"/Users/disenho/Documents/SiB/dataportal-explorer/package.json",
+		"/Users/disenho/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/disenho/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/disenho/Library/Application Support/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/taxonomy/introduction.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/geography/overviewMapWithLinks.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/department/overviewMapWithLinks.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/stylesheet/fonts/DINOT-Medium.svg",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/header.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/common/headcontent.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/webservices/en/introduction.jsp",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/tiles-def.xml",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/skins/standard/global.css",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/datasetDispatcher-servlet.xml",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/images/colombiaMap.png",
+		"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/home.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"",
+			"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/occurrence",
+			"",
+			"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp/WEB-INF/jsp/occurrence",
+			"",
+			"/Users/disenho/Documents/SiB/sib-dataportal/portal-web/src/main/webapp",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			" required=\"\"",
+			"\"fast\"",
+			"fast",
+			"persona jur",
+			"<ol>",
+			"95%",
+			"persona ju",
+			"$",
+			"<div class=\"required-message\">Esta pregunta es obligatoria.</div>",
+			"Esta pregunta es obligatoria.",
+			"titular del ",
+			"h3",
+			"<h2",
+			"<form",
+			"/form>",
+			"persona ju",
+			"persona jur",
+			"<h2",
+			"h2",
+			"h3",
+			"width:95%",
+			"persona jur",
+			"informa",
+			"white",
+			"localhost:8080",
+			"localhost",
+			"${sibsp.rootURL}",
+			",,",
+			",\n",
+			",,",
+			",\n,",
+			",",
+			", ",
+			",\n,",
+			",",
+			", ",
+			"bienvenido",
+			"el valida",
+			"footer",
+			"body {",
+			"0061a8",
+			"body {",
+			"body",
+			"66%",
+			"strong",
+			"/SIB-theme/images/theme/",
+			"10px",
+			"descargue",
+			".btn-prim",
+			".btn {",
+			".btn",
+			"descargue la",
+			"[@s.",
+			"\">\n",
+			"[@s.",
+			";\n",
+			"span3",
+			"2",
+			"clas",
+			"1200",
+			"span3 {",
+			"span3",
+			",\n",
+			"1px 5",
+			"(0",
+			"1, 5,",
+			"6",
+			"25",
+			"30",
+			"0.15",
+			"0, 0,",
+			".content-inner",
+			".content",
+			"div.span3",
+			"span3",
+			"2",
+			"15",
+			"validador",
+			"bienvenido",
+			"bienve",
+			"sibsp.application.fourthstep",
+			"bienvenido",
+			"1",
+			"5",
+			"0.15",
+			"6",
+			"15px",
+			".content",
+			".navbar-fixed-top",
+			"</li>",
+			"<li>",
+			".navbar-fixed-top .navbar-inner,",
+			".navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner",
+			"navbar-m",
+			"navbar",
+			"brand",
+			"fuente de datos",
+			"fuente de fatos",
+			"VERSIÓN PUBLICADA",
+			" =FUENTE DE DATOS",
+			" FUENTE DE DATOS",
+			"=metadatos",
+			"=METADATOS",
+			"METADATOS",
+			"\"METADATOS\"",
+			"medal",
+			"id=\"publish\"",
+			"id=\"metadata\"",
+			"\"metadata\"",
+			"\"metada",
+			"\"sources\"",
+			"sources",
+			"\"sources\"",
+			"<!--",
+			"\"mappings\"",
+			"mappings",
+			"\"publish\"",
+			"manage.mapping.source",
+			"aaaa",
+			"manage.mapping.source",
+			"=fuente de datos",
+			"fuente de datos",
+			"#region-menu",
+			"grid_18",
+			"#region-menu",
+			"home",
+			"filtro",
+			"filtro	"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			", ,",
+			",",
+			"${rootURL}/images/",
+			"(../../images/colorbox/",
+			"../../images/colorbox/",
+			"/images/ayuda/tutorial",
+			"Path}/images/tutorial",
+			"href=\"${pageContext.request.contextPath}",
+			"${pageContext.request.contextPath}",
+			"#2b7fbc",
+			"Oswald",
+			"Open Sans Condensed",
+			"footer"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/main/webapp/WEB-INF/pages/home.ftl",
+					"settings":
+					{
+						"buffer_size": 2430,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/main/webapp/WEB-INF/pages/include/header.ftl",
+					"settings":
+					{
+						"buffer_size": 3017,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/main/webapp/css/style2.css",
+					"settings":
+					{
+						"buffer_size": 8487,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/main/webapp/css/bootstrap.css",
+					"settings":
+					{
+						"buffer_size": 114789,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/main/resources/ApplicationResources_en.properties",
+					"settings":
+					{
+						"buffer_size": 14931,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Java/JavaProperties.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/main/webapp/css/bootstrap-responsive.css",
+					"settings":
+					{
+						"buffer_size": 20999,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								110,
+								110
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/main/webapp/WEB-INF/pages/include/upload_new_template.ftl",
+					"settings":
+					{
+						"buffer_size": 457,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"upload",
+				"main/webapp/WEB-INF/pages/include/upload_new_template.ftl"
+			],
+			[
+				"_en",
+				"main/resources/ApplicationResources_en.properties"
+			],
+			[
+				"es.pro",
+				"main/resources/ApplicationResources_es.properties"
+			],
+			[
+				"properties",
+				"main/resources/ApplicationResources.properties"
+			],
+			[
+				"resource.ftl",
+				"main/webapp/WEB-INF/pages/manage/inc/create_new_resource.ftl"
+			],
+			[
+				"resource",
+				"main/webapp/WEB-INF/pages/portal/resource.ftl"
+			],
+			[
+				"create_new_resource.ftl",
+				"main/webapp/WEB-INF/pages/manage/inc/create_new_resource.ftl"
+			],
+			[
+				"custo",
+				"main/webapp/styles/custom.css"
+			],
+			[
+				"css",
+				"main/webapp/styles/main.css"
+			],
+			[
+				"menu",
+				"main/webapp/WEB-INF/pages/inc/menu.ftl"
+			],
+			[
+				"browse",
+				"webapp/WEB-INF/jsp/department/browse.jsp"
+			],
+			[
+				"footer",
+				"webapp/common/frontPageFooter.jsp"
+			],
+			[
+				"small",
+				"webapp/WEB-INF/jsp/taxonomy/smallBrowse.jsp"
+			],
+			[
+				"pan",
+				"webapp/WEB-INF/jsp/panes.jsp"
+			],
+			[
+				"panes",
+				"webapp/WEB-INF/jsp/panes.jsp"
+			],
+			[
+				"globa",
+				"webapp/skins/standard/speciesGlobal.css"
+			],
+			[
+				"main",
+				"webapp/layouts/frontPageMainLayout.jsp"
+			],
+			[
+				"brow",
+				"webapp/WEB-INF/jsp/dataset/browse.jsp"
+			],
+			[
+				"frontpa",
+				"webapp/WEB-INF/jsp/frontPageHeader.jsp"
+			],
+			[
+				"headco",
+				"webapp/WEB-INF/jsp/dataset/headcontent.jsp"
+			],
+			[
+				"publis",
+				"webapp/skins/standard/publisherSpecial.css"
+			],
+			[
+				"publish",
+				"webapp/skins/standard/publisherSpecial.css"
+			],
+			[
+				"layout",
+				"webapp/layouts/mainLayout.jsp"
+			],
+			[
+				"foot",
+				"webapp/common/footer.jsp"
+			],
+			[
+				"auto",
+				"shared/autocomplete.css"
+			],
+			[
+				"foo",
+				"webapp/common/footer.jsp"
+			],
+			[
+				"browse.js",
+				"webapp/WEB-INF/jsp/geography/browse.jsp"
+			],
+			[
+				"introd",
+				"webapp/WEB-INF/jsp/dataset/introduction.jsp"
+			],
+			[
+				"layou",
+				"webapp/layouts/mainLayout.jsp"
+			],
+			[
+				"browse.jsp",
+				"webapp/WEB-INF/jsp/taxonomy/smallBrowse.jsp"
+			],
+			[
+				"autocom",
+				"shared/autocomplete.css"
+			],
+			[
+				"filte",
+				"shared/filters.css"
+			],
+			[
+				"spec",
+				"webapp/skins/standard/speciesSpecial.css"
+			],
+			[
+				"table",
+				"shared/tables.css"
+			],
+			[
+				"tables",
+				"webapp/WEB-INF/jsp/dataset/drilldown/provider/logTableSubtitle.jsp"
+			],
+			[
+				"specie",
+				"webapp/skins/standard/speciesGlobal.css"
+			],
+			[
+				"saearch",
+				"webapp/skins/standard/searchSpecial.css"
+			],
+			[
+				"speci",
+				"webapp/skins/standard/speciesGlobal.css"
+			],
+			[
+				"messa",
+				"webapp/WEB-INF/classes/messages_es.properties"
+			],
+			[
+				"intro",
+				"webapp/WEB-INF/jsp/dataset/introduction.jsp"
+			],
+			[
+				"introduc",
+				"webapp/WEB-INF/jsp/publisher/introduction.jsp"
+			],
+			[
+				"datase",
+				"webapp/skins/standard/datasetsSpecial.css"
+			],
+			[
+				"data",
+				"webapp/skins/standard/datasetsSpecial.css"
+			],
+			[
+				"species",
+				"webapp/skins/standard/speciesSpecial.css"
+			],
+			[
+				"ocu",
+				"webapp/skins/standard/occurrenceSpecial.css"
+			],
+			[
+				"filter",
+				"shared/filters.css"
+			],
+			[
+				"ocurr",
+				"webapp/skins/standard/occurrenceSpecial.css"
+			],
+			[
+				"mess",
+				"webapp/WEB-INF/classes/messages_es.properties"
+			],
+			[
+				"tre",
+				"shared/tree.css"
+			],
+			[
+				"autoco",
+				"shared/autocomplete.css"
+			],
+			[
+				"ocurrence",
+				"webapp/skins/standard/occurrenceSpecial.css"
+			],
+			[
+				"frontpagetopmenu",
+				"webapp/WEB-INF/jsp/menu/frontPageTopMenu.jsp"
+			],
+			[
+				"mainmen",
+				"webapp/WEB-INF/jsp/menu/mainMenu.jsp"
+			],
+			[
+				"pane",
+				"webapp/WEB-INF/jsp/panes.jsp"
+			],
+			[
+				"searchs",
+				"skins/standard/searchSpecial.css"
+			],
+			[
+				"blanket",
+				"WEB-INF/jsp/menu/blanketSearch.jsp"
+			],
+			[
+				"blanke",
+				"WEB-INF/jsp/menu/blanketSearch.jsp"
+			],
+			[
+				"global",
+				"skins/standard/speciesGlobal.css"
+			],
+			[
+				"introductio",
+				"WEB-INF/jsp/publisher/introduction.jsp"
+			],
+			[
+				"intr",
+				"WEB-INF/jsp/publisher/introduction.jsp"
+			],
+			[
+				"introduction.",
+				"WEB-INF/jsp/publisher/introduction.jsp"
+			],
+			[
+				"topme",
+				"WEB-INF/jsp/menu/topMenu.jsp"
+			],
+			[
+				"header",
+				"WEB-INF/jsp/frontPageHeader.jsp"
+			],
+			[
+				"search",
+				"WEB-INF/jsp/blanketSearch.jsp"
+			],
+			[
+				"gbif",
+				"skins/shared/gbifmap.css"
+			],
+			[
+				"div",
+				"stylesheet/fonts/DINOT-Medium.svg"
+			],
+			[
+				"headc",
+				"WEB-INF/jsp/headcontent.jsp"
+			],
+			[
+				"heade",
+				"common/headcontent.jsp"
+			],
+			[
+				"introduct",
+				"WEB-INF/jsp/taxonomy/introduction.jsp"
+			],
+			[
+				"introduction.jsp",
+				"webservices/en/introduction.jsp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 235.0,
+	"status_bar_visible": true
+}
