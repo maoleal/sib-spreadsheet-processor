@@ -327,7 +327,7 @@ footer h5{
 footer aside{
 	float: left;
 }
-footer section{ margin: 0 auto; max-width: 445px; padding: 30px 0 !important; text-align: center;}
+footer section{ margin: 0 auto; max-width: 470px; padding: 30px 0 !important; text-align: left;}
 footer section div{ display: inline-block; vertical-align: top;}
 footer section div:nth-child(3) div{ width: 24%;}
 footer section div:nth-child(3) div:nth-child(1){ width: 31%;}
