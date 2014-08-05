@@ -25,6 +25,7 @@ import java.util.regex.Pattern;
 
 import com.google.common.base.Strings;
 import com.google.inject.Inject;
+
 import net.sibcolombia.sibsp.configuration.ApplicationConfig;
 import net.sibcolombia.sibsp.configuration.Constants;
 import net.sibcolombia.sibsp.configuration.DataDir;
@@ -45,9 +46,11 @@ import net.sibcolombia.sibsp.service.admin.VocabulariesManager;
 import net.sibcolombia.sibsp.service.portal.ResourceManager;
 import net.sibcolombia.sibsp.service.portal.SourceManager;
 import net.sibcolombia.sibsp.struts2.SimpleTextProvider;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.exceptions.InvalidOperationException;
 
@@ -401,6 +404,10 @@ public class CreateResourceAction extends ManagerBaseAction {
 			// addFieldError("file",
 			// getText("sibsp.application.error.importexception"));
 			addActionError(getText("sibsp.application.error.importexception"));
+			return INPUT;
+		} catch(EncryptedDocumentException error){
+			log.error("The supplied spreadsheet seems to be an Encrypted .xlsx file. It must be decrypted before use by XSSF, it cannot be used by HSSF.");
+			addActionError(getText("sibsp.application.error.encrypted"));
 			return INPUT;
 		} catch (AlreadyExistingException e) {
 			log.error("File already exist.");

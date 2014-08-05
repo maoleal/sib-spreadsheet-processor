@@ -17,8 +17,10 @@ import java.util.Map;
 
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
+
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+
 import net.sibcolombia.sibsp.action.BaseAction;
 import net.sibcolombia.sibsp.action.portal.CreateResourceAction;
 import net.sibcolombia.sibsp.configuration.ApplicationConfig;
@@ -27,7 +29,9 @@ import net.sibcolombia.sibsp.configuration.DataDir;
 import net.sibcolombia.sibsp.model.Resource;
 import net.sibcolombia.sibsp.service.BaseManager;
 import net.sibcolombia.sibsp.struts2.SimpleTextProvider;
+
 import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.exceptions.InvalidOperationException;
 import org.apache.poi.ss.usermodel.Cell;
@@ -62,7 +66,7 @@ public class Xls2Csv extends BaseManager {
 	}
 
 	public File convertExcelCoreCompleteToCsv(Resource resource, File sourceFile, ActionLogger actionLogger)
-			throws IOException, InvalidFormatException {
+			throws IOException, InvalidFormatException, EncryptedDocumentException {
 		Workbook template = WorkbookFactory.create(sourceFile);
 		File file = dataDir.sourceExcelFile(resource, "data");
 		OutputStream csvFile = new FileOutputStream(file);
