@@ -78,6 +78,9 @@ public class CreateResourceAction extends ManagerBaseAction {
 	private ExtensionProperty coreid;
 	private PropertyMapping mappingCoreid;
 	private final Xls2Csv excelToCsvConverter;
+	
+	private String emptySh;
+
 
 	private List<String> columns;
 	private List<PropertyMapping> fields;
@@ -272,6 +275,7 @@ public class CreateResourceAction extends ManagerBaseAction {
 				UUID uniqueID = UUID.randomUUID();
 				this.resource = resourceManager.processMetadataSpreadsheetPart("tempMetadata", actionLogger);
 				this.resource.setUniqueID(uniqueID);
+				System.out.println("Number of RECORDS: "+resource.getRecordsPublished());
 				if (tmpFiles.get("ExcelFileComplete") != null) {
 					log.info("Processing darwinCore attribute files");
 					dataFileElements = excelToCsvConverter.convertExcelCoreCompleteToCsv(resource, tmpFiles.get("ExcelFileComplete").getFile(), actionLogger);
@@ -413,7 +417,19 @@ public class CreateResourceAction extends ManagerBaseAction {
 			log.error("File already exist.");
 			return INPUT;
 		}
-		return SUCCESS;
+		
+		System.out.println("Number of RECORDS!!: "+resource.getRecordsPublished());
+		
+		if(resource.getRecordsPublished()==0){
+			log.error("The file is empty, no records");
+			addActionError(getText("sibsp.application.error.empty"));
+			this.emptySh ="Libro vacio";
+			return INPUT;
+		}else{
+			return SUCCESS;
+		}
+		
+		
 	}
 
 	public String saveMapping() throws IOException {
@@ -569,6 +585,14 @@ public class CreateResourceAction extends ManagerBaseAction {
 			return file;
 		}
 
+	}
+	
+	public String getEmptySh() {
+		return emptySh;
+	}
+
+	public void setEmptySh(String emptySh) {
+		this.emptySh = emptySh;
 	}
 
 }
