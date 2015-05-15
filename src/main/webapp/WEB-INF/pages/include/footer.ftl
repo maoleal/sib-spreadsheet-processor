@@ -21,7 +21,7 @@
 			var manualuploader = new qq.FineUploader({
 				element: $('#manual-fine-uploader')[0],
 				request: {
-					endpoint: '/procesador-cp-sib/upload.do'
+					endpoint: '/procesador-cr-sib/upload.do'
 				},
 				autoUpload: false,
 				

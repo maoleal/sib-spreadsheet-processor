@@ -275,7 +275,6 @@ public class CreateResourceAction extends ManagerBaseAction {
 				UUID uniqueID = UUID.randomUUID();
 				this.resource = resourceManager.processMetadataSpreadsheetPart("tempMetadata", actionLogger);
 				this.resource.setUniqueID(uniqueID);
-				System.out.println("Number of RECORDS: "+resource.getRecordsPublished());
 				if (tmpFiles.get("ExcelFileComplete") != null) {
 					log.info("Processing darwinCore attribute files");
 					dataFileElements = excelToCsvConverter.convertExcelCoreCompleteToCsv(resource, tmpFiles.get("ExcelFileComplete").getFile(), actionLogger);
@@ -418,7 +417,7 @@ public class CreateResourceAction extends ManagerBaseAction {
 			return INPUT;
 		}
 		
-		System.out.println("Number of RECORDS!!: "+resource.getRecordsPublished());
+		
 		
 		if(resource.getRecordsPublished()==0){
 			log.error("The file is empty, no records");

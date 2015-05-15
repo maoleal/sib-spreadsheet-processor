@@ -77,6 +77,11 @@ public class Xls2Csv extends BaseManager {
 
 		// Read first row columns names
 		Sheet sheet = template.getSheet("Plantilla");
+		if(sheet==null){
+			log.info("Invalid template");
+			writer.close();
+			throw new InvalidFormatException("");
+		}
 		int totalColumns = sheet.getRow(0).getLastCellNum();
 		log.info("Num of cols: "+totalColumns);
 		int columnsWithRequiredElements = 0;

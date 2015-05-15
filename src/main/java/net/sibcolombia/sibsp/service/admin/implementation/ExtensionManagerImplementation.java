@@ -162,7 +162,7 @@ public class ExtensionManagerImplementation extends BaseManager implements Exten
     } catch (InvalidConfigException e) {
       throw e;
     } catch (Exception e) {
-      e.printStackTrace();
+      //e.printStackTrace();
       log.error(e);
       throw new InvalidConfigException(TYPE.INVALID_EXTENSION, "Error installing extension " + url, e);
     }

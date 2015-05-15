@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <package name="site" extends="procesador-cp-sib-default" namespace="/">
+    <package name="site" extends="procesador-cr-sib-default" namespace="/">
 
         <default-interceptor-ref name="portalStack"/>
 
